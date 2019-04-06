@@ -2,8 +2,9 @@
     "name": "babel-preset-packez",
     "version": "0.0.1",
     "description": "",
-    "main": "index.js",
+    "main": "./lib/index.js",
     "scripts": {
+        "start": "transform-es src -d lib -t node",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
@@ -49,6 +50,10 @@
         "@babel/preset-flow": "^7.0.0",
         "@babel/preset-react": "^7.0.0",
         "@babel/runtime": "^7.4.3",
-        "@babel/runtime-corejs2": "^7.4.3"
+        "@babel/runtime-corejs2": "^7.4.3",
+        "lodash": "^4.17.11"
+    },
+    "devDependencies": {
+        "transform-es": "^2.2.10"
     }
 }
