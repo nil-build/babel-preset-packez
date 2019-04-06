@@ -12,7 +12,8 @@ module.exports = function (api, opts) {
             regenerator: true,
             useESModules: false,
             absoluteRuntime: false,
-        }
+        },
+        exclude: ['transform-typeof-symbol'],
     }
 
     opts = defaultsDeep(opts, defaultOpts);

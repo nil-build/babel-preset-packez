@@ -19,16 +19,30 @@ export default function (api, opts) {
             strictMode
         }
     ] : null;
-
+    // class-properties 开启 `loose` 后 private-methods 也要同时开启
     return [
         require.resolve("@babel/plugin-syntax-dynamic-import"),
         require.resolve("@babel/plugin-proposal-async-generator-functions"),
-        [require.resolve("@babel/plugin-proposal-decorators"), {
-            decoratorsBeforeExport: true,
-            legacy: false
-        }],
-        require.resolve("@babel/plugin-proposal-class-properties"),
-        require.resolve("@babel/plugin-proposal-private-methods"),
+        [
+            require.resolve("@babel/plugin-proposal-decorators"),
+            {
+                decoratorsBeforeExport: true,
+                legacy: false,
+                // legacy: true
+            }
+        ],
+        [
+            require.resolve("@babel/plugin-proposal-class-properties"),
+            {
+                "loose": true
+            }
+        ],
+        [
+            require.resolve("@babel/plugin-proposal-private-methods"),
+            {
+                "loose": true
+            }
+        ],
         require.resolve("@babel/plugin-proposal-do-expressions"),
         require.resolve("@babel/plugin-proposal-export-default-from"),
         require.resolve("@babel/plugin-proposal-export-namespace-from"),

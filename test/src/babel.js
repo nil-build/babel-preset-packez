@@ -15,6 +15,12 @@ export { sv21 }
 export { sv21 as v }
 
 
+{
+    //typeof
+    const s = num;
+    typeof s === 'number'
+}
+
 //member-expression-literals
 {
     obj["foo"] = "isValid";
