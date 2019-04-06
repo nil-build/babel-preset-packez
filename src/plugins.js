@@ -36,7 +36,10 @@ export default function (api, opts) {
         require.resolve("@babel/plugin-proposal-private-methods"),
         require.resolve("@babel/plugin-proposal-throw-expressions"),
         require.resolve("@babel/plugin-transform-react-jsx"),
-        require.resolve("@babel/plugin-proposal-decorators"),
+        [require.resolve("@babel/plugin-proposal-decorators"), {
+            decoratorsBeforeExport: true,
+            legacy: false
+        }],
         require.resolve("@babel/plugin-transform-proto-to-assign"), //Internet Explorer(10 and below)
         [require.resolve("@babel/plugin-proposal-pipeline-operator"), { "proposal": "minimal" }],
         [require.resolve("@babel/plugin-transform-runtime"), runtimeOptions],

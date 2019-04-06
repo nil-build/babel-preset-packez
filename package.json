@@ -4,14 +4,18 @@
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
-        "start": "transform-es src -d lib -t node",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "transform-es src -d lib -t node -w",
+        "test": "babel test/src -d test/lib"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/nil-build/babel-preset-packez.git"
     },
-    "keywords": [],
+    "keywords": [
+        "babel",
+        "babel-preset",
+        "babel-preset-packez"
+    ],
     "author": "nobo.zhou@foxmail.com",
     "license": "MIT",
     "bugs": {
@@ -54,6 +58,12 @@
         "lodash": "^4.17.11"
     },
     "devDependencies": {
+        "@babel/cli": "^7.4.3",
         "transform-es": "^2.2.10"
+    },
+    "babel": {
+        "presets": [
+            "./lib"
+        ]
     }
 }
