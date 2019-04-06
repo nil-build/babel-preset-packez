@@ -1,0 +1,14 @@
+{
+    "presets": [
+        [
+            "./lib",
+            {
+                "modules": "cjs",
+                "strictMode": false,
+                "runtimeOptions": {
+                    "helpers": false
+                }
+            }
+        ]
+    ]
+}

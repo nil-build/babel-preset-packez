@@ -23,23 +23,24 @@ export default function (api, opts) {
     return [
         require.resolve("@babel/plugin-syntax-dynamic-import"),
         require.resolve("@babel/plugin-proposal-async-generator-functions"),
+        [require.resolve("@babel/plugin-proposal-decorators"), {
+            decoratorsBeforeExport: true,
+            legacy: false
+        }],
         require.resolve("@babel/plugin-proposal-class-properties"),
+        require.resolve("@babel/plugin-proposal-private-methods"),
         require.resolve("@babel/plugin-proposal-do-expressions"),
         require.resolve("@babel/plugin-proposal-export-default-from"),
         require.resolve("@babel/plugin-proposal-export-namespace-from"),
         require.resolve("@babel/plugin-proposal-function-bind"),
+        require.resolve("@babel/plugin-proposal-function-sent"),
         require.resolve("@babel/plugin-proposal-logical-assignment-operators"),
         require.resolve("@babel/plugin-proposal-nullish-coalescing-operator"),
         require.resolve("@babel/plugin-proposal-numeric-separator"),
         require.resolve("@babel/plugin-proposal-optional-chaining"),
         require.resolve("@babel/plugin-proposal-partial-application"),
-        require.resolve("@babel/plugin-proposal-private-methods"),
         require.resolve("@babel/plugin-proposal-throw-expressions"),
         require.resolve("@babel/plugin-transform-react-jsx"),
-        [require.resolve("@babel/plugin-proposal-decorators"), {
-            decoratorsBeforeExport: true,
-            legacy: false
-        }],
         require.resolve("@babel/plugin-transform-proto-to-assign"), //Internet Explorer(10 and below)
         [require.resolve("@babel/plugin-proposal-pipeline-operator"), { "proposal": "minimal" }],
         [require.resolve("@babel/plugin-transform-runtime"), runtimeOptions],

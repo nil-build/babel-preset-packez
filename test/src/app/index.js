@@ -2,35 +2,6 @@ const path = require('path');
 const fs = require("fs-extra");
 const glob = require('fast-glob');
 
-var t = require('./cjst')
-
-import z from './cjst';
-
-@ta
-class MyApp {
-    static a = 3
-    title = 'test'
-    constructor() {
-
-    }
-    say() { }
-
-    a = () => { }
-}
-
-//cst a = 4;
-
-
-async function test() {
-    const a = await '23';
-}
-
-test()
-
-new Promise(r => r(1))
-
-const x = new Set();
-
 module.exports = function (appSrc = 'src', appDist = 'dest', options = {}) {
     const defaults = {
         cwd: process.cwd(),

@@ -2,10 +2,6 @@ const path = require('path');
 const fs = require("fs-extra");
 const glob = require('fast-glob');
 
-var t = require('./cjst')
-
-import z from './cjst';
-
 @ta
 class MyApp {
     static a = 3

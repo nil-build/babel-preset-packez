@@ -1,7 +1,5 @@
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
-var _cjst = _interopRequireDefault(require("./cjst"));
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -45,8 +43,6 @@ var path = require('path');
 var fs = require("fs-extra");
 
 var glob = require('fast-glob');
-
-var t = require('./cjst');
 
 var MyApp = _decorate([ta], function (_initialize) {
   var MyApp = function MyApp() {

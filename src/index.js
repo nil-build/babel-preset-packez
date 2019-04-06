@@ -2,14 +2,20 @@
 import { omit, defaultsDeep } from 'lodash';
 import plugins from './plugins';
 
-export default function (api, opts) {
-    const runtimeOptions = {
-        corejs: false,
-        helpers: true,
-        regenerator: true,
-        useESModules: false,
-        absoluteRuntime: false,
+module.exports = function (api, opts) {
+    const defaultOpts = {
+        modules: "cjs",
+        strictMode: true,
+        runtimeOptions: {
+            corejs: false,
+            helpers: true,
+            regenerator: true,
+            useESModules: false,
+            absoluteRuntime: false,
+        }
     }
+
+    opts = defaultsDeep(opts, defaultOpts);
 
     return {
         "presets": [
@@ -22,11 +28,7 @@ export default function (api, opts) {
         ],
         "plugins": plugins(
             api,
-            defaultsDeep(opts, {
-                modules: "auto",
-                strictMode: true,
-                runtimeOptions
-            })
+            opts
         )
     }
 

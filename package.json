@@ -5,7 +5,7 @@
     "main": "./lib/index.js",
     "scripts": {
         "start": "transform-es src -d lib -t node -w",
-        "test": "babel test/src -d test/lib"
+        "test": "babel ./test/src -d ./test/lib"
     },
     "repository": {
         "type": "git",
@@ -60,10 +60,5 @@
     "devDependencies": {
         "@babel/cli": "^7.4.3",
         "transform-es": "^2.2.10"
-    },
-    "babel": {
-        "presets": [
-            "./lib"
-        ]
     }
 }
