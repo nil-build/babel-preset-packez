@@ -1,24 +1,21 @@
-
-export default function (api, opts) {
-    const {
-        modules,
-        strictMode,
-        runtimeOptions
-    } = opts;
+export default function(api, opts) {
+    const { modules, strictMode, runtimeOptions } = opts;
 
     const modulesMap = {
-        'commonjs': require.resolve('@babel/plugin-transform-modules-commonjs'),
-        'cjs': require.resolve('@babel/plugin-transform-modules-commonjs'),
-        'umd': require.resolve('@babel/plugin-transform-modules-umd'),
-        'amd': require.resolve('@babel/plugin-transform-modules-amd'),
-        'systemjs': require.resolve('@babel/plugin-transform-modules-systemjs'),
+        commonjs: require.resolve("@babel/plugin-transform-modules-commonjs"),
+        cjs: require.resolve("@babel/plugin-transform-modules-commonjs"),
+        umd: require.resolve("@babel/plugin-transform-modules-umd"),
+        amd: require.resolve("@babel/plugin-transform-modules-amd"),
+        systemjs: require.resolve("@babel/plugin-transform-modules-systemjs")
     };
-    const modulePlugin = modulesMap[modules] ? [
-        modulesMap[modules],
-        {
-            strictMode
-        }
-    ] : null;
+    const modulePlugin = modulesMap[modules]
+        ? [
+              modulesMap[modules],
+              {
+                  strictMode
+              }
+          ]
+        : null;
     // class-properties 开启 `loose` 后 private-methods 也要同时开启
     return [
         require.resolve("@babel/plugin-syntax-dynamic-import"),
@@ -27,20 +24,21 @@ export default function (api, opts) {
             require.resolve("@babel/plugin-proposal-decorators"),
             {
                 decoratorsBeforeExport: true,
-                legacy: false,
+                legacy: false
                 // legacy: true
             }
         ],
+        // Enable loose mode to use assignment instead of defineProperty
         [
             require.resolve("@babel/plugin-proposal-class-properties"),
             {
-                "loose": true
+                loose: true
             }
         ],
         [
             require.resolve("@babel/plugin-proposal-private-methods"),
             {
-                "loose": true
+                loose: true
             }
         ],
         require.resolve("@babel/plugin-proposal-do-expressions"),
@@ -56,7 +54,10 @@ export default function (api, opts) {
         require.resolve("@babel/plugin-proposal-throw-expressions"),
         require.resolve("@babel/plugin-transform-react-jsx"),
         require.resolve("@babel/plugin-transform-proto-to-assign"), //Internet Explorer(10 and below)
-        [require.resolve("@babel/plugin-proposal-pipeline-operator"), { "proposal": "minimal" }],
+        [
+            require.resolve("@babel/plugin-proposal-pipeline-operator"),
+            { proposal: "minimal" }
+        ],
         [require.resolve("@babel/plugin-transform-runtime"), runtimeOptions],
         modulePlugin
     ].filter(v => v);
