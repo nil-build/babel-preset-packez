@@ -407,9 +407,9 @@ export { sv21 as v }
     <Sometag />
 }
 //flow-strip-types
-{
-    function foo(one: any, two: number, three?): string { }
-}
+// {
+//     function foo(one: any, two: number, three?): string { }
+// }
 //object-assign
 {
     Object.assign(a, b);

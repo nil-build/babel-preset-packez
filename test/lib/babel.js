@@ -738,10 +738,10 @@ function f() {}
   }), React.createElement("h3", null, [user.firstName, user.lastName].join(' ')));
   React.createElement(Sometag, null);
 } //flow-strip-types
-
-{
-  var _foo3 = function _foo3(one, two, three) {};
-} //object-assign
+// {
+//     function foo(one: any, two: number, three?): string { }
+// }
+//object-assign
 
 {
   Object.assign(a, b);
