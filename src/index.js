@@ -1,36 +1,41 @@
+import { omit, defaultsDeep } from "lodash";
+import plugins from "./plugins";
 
-import { omit, defaultsDeep } from 'lodash';
-import plugins from './plugins';
-
-module.exports = function (api, opts) {
+module.exports = function(api, opts) {
     const defaultOpts = {
         modules: "cjs",
         strictMode: true,
+        decoratorsBeforeExport: true,
+        // corejs: 3,
+        // useBuiltIns: "usage",
+        // targets: {
+        //     node: "current"
+        // },
         runtimeOptions: {
             corejs: false,
             helpers: true,
             regenerator: true,
             useESModules: false,
-            absoluteRuntime: false,
+            absoluteRuntime: false
         },
-        exclude: ['transform-typeof-symbol'],
-    }
+        exclude: ["transform-typeof-symbol"]
+    };
 
     opts = defaultsDeep(opts, defaultOpts);
 
     return {
-        "presets": [
+        presets: [
             [
-                require.resolve('@babel/preset-env'),
-                omit(opts, ["runtimeOptions", "strictMode"])
+                require.resolve("@babel/preset-env"),
+                omit(opts, [
+                    "runtimeOptions",
+                    "strictMode",
+                    "decoratorsBeforeExport"
+                ])
             ],
-            require.resolve('@babel/preset-react'),
-            require.resolve('@babel/preset-flow')
+            require.resolve("@babel/preset-react"),
+            require.resolve("@babel/preset-flow")
         ],
-        "plugins": plugins(
-            api,
-            opts
-        )
-    }
-
-}
+        plugins: plugins(api, opts)
+    };
+};

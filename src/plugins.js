@@ -1,5 +1,10 @@
 export default function(api, opts) {
-    const { modules, strictMode, runtimeOptions } = opts;
+    const {
+        modules,
+        strictMode,
+        runtimeOptions,
+        decoratorsBeforeExport = true
+    } = opts;
 
     const modulesMap = {
         commonjs: require.resolve("@babel/plugin-transform-modules-commonjs"),
@@ -23,9 +28,8 @@ export default function(api, opts) {
         [
             require.resolve("@babel/plugin-proposal-decorators"),
             {
-                decoratorsBeforeExport: true,
+                decoratorsBeforeExport,
                 legacy: false
-                // legacy: true
             }
         ],
         // Enable loose mode to use assignment instead of defineProperty
@@ -52,8 +56,9 @@ export default function(api, opts) {
         require.resolve("@babel/plugin-proposal-optional-chaining"),
         require.resolve("@babel/plugin-proposal-partial-application"),
         require.resolve("@babel/plugin-proposal-throw-expressions"),
-        require.resolve("@babel/plugin-transform-react-jsx"),
-        require.resolve("@babel/plugin-transform-proto-to-assign"), //Internet Explorer(10 and below)
+        require.resolve("@babel/plugin-proposal-optional-catch-binding"),
+        // require.resolve("@babel/plugin-transform-react-jsx"),
+        // require.resolve("@babel/plugin-transform-proto-to-assign"), //Internet Explorer(10 and below)
         [
             require.resolve("@babel/plugin-proposal-pipeline-operator"),
             { proposal: "minimal" }
