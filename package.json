@@ -1,10 +1,10 @@
 {
     "name": "babel-preset-packez",
-    "version": "0.4.1",
+    "version": "0.4.2",
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
-        "start": "transform-es src -d lib -t node -w",
+        "start": "transform-es src -d lib -t node -w --corejs false",
         "test": "babel ./test/src -d ./test/lib"
     },
     "repository": {
@@ -59,6 +59,7 @@
         "@babel/preset-env": "^7.4.3",
         "@babel/preset-react": "^7.0.0",
         "@babel/runtime": "^7.4.3",
+        "@babel/runtime-corejs2": "^7.5.5",
         "lodash": "^4.17.11"
     },
     "devDependencies": {
