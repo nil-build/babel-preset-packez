@@ -16,6 +16,11 @@
         "babel-preset",
         "babel-preset-packez"
     ],
+    "files": [
+        "lib",
+        "*.js",
+        "*.md"
+    ],
     "author": "nobo.zhou@foxmail.com",
     "license": "MIT",
     "bugs": {
@@ -54,7 +59,6 @@
         "@babel/preset-env": "^7.4.3",
         "@babel/preset-react": "^7.0.0",
         "@babel/runtime": "^7.4.3",
-        "@babel/runtime-corejs2": "^7.4.3",
         "lodash": "^4.17.11"
     },
     "devDependencies": {

@@ -47,3 +47,7 @@ absoluteRuntime: false,
 ```
 
 详细：[transform-runtime](https://babeljs.io/docs/en/next/babel-plugin-transform-runtime)
+
+### decoratorsBeforeExport
+
+`boolean`, defaults to `true`
