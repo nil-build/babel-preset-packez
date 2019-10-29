@@ -64,6 +64,8 @@ export default function(api, opts) {
             { proposal: "minimal" }
         ],
         [require.resolve("@babel/plugin-transform-runtime"), runtimeOptions],
+        //Replaces __DEV__ with process.env.NODE_ENV !== 'production'
+        require.resolve("babel-plugin-dev-expression"),
         modulePlugin
     ].filter(v => v);
 }

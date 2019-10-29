@@ -3,7 +3,7 @@ import plugins from "./plugins";
 
 module.exports = function(api, opts) {
     const defaultOpts = {
-        modules: "cjs",
+        modules: "commonjs",
         strictMode: true,
         decoratorsBeforeExport: true,
         // corejs: 3,
