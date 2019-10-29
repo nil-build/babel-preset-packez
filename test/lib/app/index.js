@@ -31,5 +31,5 @@ module.exports = function () {
       var absDestFile = path.resolve(options.cwd, appDist, file);
       fs.copySync(absSrcFile, absDestFile);
     });
-  })["catch"](console.error);
+  }).catch(console.error);
 };

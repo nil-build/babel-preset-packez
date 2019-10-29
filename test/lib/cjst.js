@@ -1,10 +1,10 @@
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _marked =
 /*#__PURE__*/
-_regenerator["default"].mark(foo);
+_regenerator.default.mark(foo);
 
 function cssWithMappingToString(item, useSourceMap) {}
 
@@ -22,7 +22,7 @@ module.exports = function (useSourceMap) {
 };
 
 function foo() {
-  return _regenerator["default"].wrap(function foo$(_context) {
+  return _regenerator.default.wrap(function foo$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:

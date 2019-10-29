@@ -1,6 +1,6 @@
 {
     "name": "babel-preset-packez",
-    "version": "0.5.2",
+    "version": "0.5.3",
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
@@ -40,6 +40,7 @@
         "@babel/plugin-proposal-logical-assignment-operators": "^7.2.0",
         "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
         "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+        "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
         "@babel/plugin-proposal-optional-catch-binding": "^7.2.0",
         "@babel/plugin-proposal-optional-chaining": "^7.6.0",
         "@babel/plugin-proposal-partial-application": "^7.4.4",

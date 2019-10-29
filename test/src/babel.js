@@ -466,3 +466,9 @@ export { sv21 as v }
         |> add(7, ?)
         |> clamp(0, 100, ?); // shallow stack, the pipe to `clamp` is the same frame as the pipe to `add`.
 }
+//proposal-throw-expressions
+{
+    function test(param = throw new Error('required!')) {
+        const test = param === true || throw new Error('Falsy!');
+      }
+}
