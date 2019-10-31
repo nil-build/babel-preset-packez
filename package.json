@@ -1,6 +1,6 @@
 {
     "name": "babel-preset-packez",
-    "version": "0.6.0",
+    "version": "0.6.1",
     "description": "",
     "main": "./lib/index.js",
     "scripts": {
@@ -65,7 +65,7 @@
     },
     "devDependencies": {
         "@babel/cli": "^7.6.4",
-        "transform-es": "^3.2.1"
+        "transform-es": "^3.3.1"
     },
     "browserslist": [
         ">0.2%",

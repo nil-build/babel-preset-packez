@@ -23,6 +23,11 @@ export default function(api, opts) {
         : null;
     // class-properties 开启 `loose` 后 private-methods 也要同时开启
     return [
+        // 注：
+        // modules: false =>  import(path)
+        // modules: cjs => Promise.resolve.then( () => require(path) )
+        // modules: amd => Promise.resolve.then( () => require([path], callback) )
+        // ...
         require.resolve("@babel/plugin-syntax-dynamic-import"),
         require.resolve("@babel/plugin-proposal-async-generator-functions"),
         [
@@ -70,8 +75,7 @@ export default function(api, opts) {
                   runtimeOptions
               ]
             : null,
-        //Replaces __DEV__ with process.env.NODE_ENV !== 'production'
-        require.resolve("babel-plugin-dev-expression"),
+        require.resolve("babel-plugin-dev-expression"), //Replaces __DEV__ with process.env.NODE_ENV !== 'production'
         modulePlugin
     ].filter(v => v);
 }

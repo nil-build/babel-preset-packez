@@ -34,7 +34,6 @@ module.exports = function(api, opts) {
                 ])
             ],
             require.resolve("@babel/preset-react")
-            // require.resolve("@babel/preset-flow")
         ],
         plugins: plugins(api, opts)
     };
