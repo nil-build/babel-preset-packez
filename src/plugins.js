@@ -57,14 +57,19 @@ export default function(api, opts) {
         require.resolve("@babel/plugin-proposal-partial-application"),
         require.resolve("@babel/plugin-proposal-throw-expressions"),
         require.resolve("@babel/plugin-proposal-optional-catch-binding"),
-        require.resolve("@babel/plugin-proposal-object-rest-spread"),
+        // require.resolve("@babel/plugin-proposal-object-rest-spread"),
         // require.resolve("@babel/plugin-transform-react-jsx"),
         // require.resolve("@babel/plugin-transform-proto-to-assign"), //Internet Explorer(10 and below)
         [
             require.resolve("@babel/plugin-proposal-pipeline-operator"),
             { proposal: "minimal" }
         ],
-        [require.resolve("@babel/plugin-transform-runtime"), runtimeOptions],
+        runtimeOptions
+            ? [
+                  require.resolve("@babel/plugin-transform-runtime"),
+                  runtimeOptions
+              ]
+            : null,
         //Replaces __DEV__ with process.env.NODE_ENV !== 'production'
         require.resolve("babel-plugin-dev-expression"),
         modulePlugin
