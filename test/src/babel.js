@@ -3,22 +3,21 @@ import * as ns from "mod";
 import { q1x } from "mod";
 import { zx as gv } from "mod";
 import "mod";
-export { x111 } from "mod"
-export { x222 as v333 } from "mod"
-export * from "mod"
+export { x111 } from "mod";
+export { x222 as v333 } from "mod";
+export * from "mod";
 export sv2 from "mod";
 
 var sv21;
 export var vxx;
-export default function f() { };
-export { sv21 }
-export { sv21 as v }
-
+export default function f() {}
+export { sv21 };
+export { sv21 as v };
 
 {
     //typeof
     const s = num;
-    typeof s === 'number'
+    typeof s === "number";
 }
 
 //member-expression-literals
@@ -32,11 +31,11 @@ export { sv21 as v }
 {
     var foo = {
         // changed
-        "bar": function () { },
-        "1": function () { },
+        bar: function() {},
+        "1": function() {},
 
         // not changed
-        "default": 1,
+        default: 1,
         [a]: 2,
         foo: 1
     };
@@ -59,18 +58,17 @@ export { sv21 as v }
 }
 //arrow-functions
 {
-    var a1 = () => { };
-    var a2 = (b) => b;
+    var a1 = () => {};
+    var a2 = b => b;
 
-    const double = [1, 2, 3].map((num) => num * 2);
+    const double = [1, 2, 3].map(num => num * 2);
     console.log(double); // [2,4,6]
 
     var bob = {
         _name: "Bob",
         _friends: ["Sally", "Tom"],
         printFriends() {
-            this._friends.forEach(f =>
-                console.log(this._name + " knows " + f));
+            this._friends.forEach(f => console.log(this._name + " knows " + f));
         }
     };
     console.log(bob.printFriends());
@@ -88,10 +86,10 @@ export { sv21 as v }
 //block - scoping
 {
     {
-        let a = 3
+        let a = 3;
     }
 
-    let a = 3
+    let a = 3;
 }
 //classes
 {
@@ -124,18 +122,19 @@ export { sv21 as v }
 {
     var x = { a: 5, a: 6 };
     var y = {
-        get a() { },
-        set a(x) { },
+        get a() {},
+        set a(x) {},
         a: 3
     };
 }
 //for-of
 {
-    for (var i of foo) { }
+    for (var i of foo) {
+    }
 }
 //function-name
 {
-    let number = (x) => x
+    let number = x => x;
 }
 //instanceof
 {
@@ -145,7 +144,7 @@ export { sv21 as v }
 {
     var b = 0b11; // binary integer literal
     var o = 0o7; // octal integer literal
-    const u = 'Hello\u{000A}\u{0009}!'; // unicode string literals, newline and tab
+    const u = "Hello\u{000A}\u{0009}!"; // unicode string literals, newline and tab
 }
 //new-target
 {
@@ -160,15 +159,15 @@ export { sv21 as v }
 {
     let obj = {
         say() {
-            return "Hello"
+            return "Hello";
         }
-    }
+    };
 
     let obj2 = {
         say() {
-            return super.say() + "World!"
+            return super.say() + "World!";
         }
-    }
+    };
 }
 //parameters
 {
@@ -182,9 +181,9 @@ export { sv21 as v }
 }
 //spread
 {
-    var za = ['a', 'b', 'c'];
+    var za = ["a", "b", "c"];
 
-    var zb = [...za, 'foo'];
+    var zb = [...za, "foo"];
 
     var zc = foo(...za);
 }
@@ -229,11 +228,11 @@ export { sv21 as v }
 }
 //dotall-regex
 {
-    /./s
+    /./s;
 }
 //object-rest-spread
 {
-    let ui = {io: 1}
+    let ui = { io: 1 };
     let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4, ...ui };
     console.log(x); // 1
     console.log(y); // 2
@@ -260,12 +259,12 @@ export { sv21 as v }
 
         //Static class properties
         static staticProperty = "babelIsCool";
-        static staticFunction = function () {
+        static staticFunction = function() {
             return Bork.staticProperty;
         };
     }
 
-    let myBork = new Bork;
+    let myBork = new Bork();
 
     //Property initializers are not on the prototype.
     console.log(myBork.__proto__.boundFunction); // > undefined
@@ -279,7 +278,7 @@ export { sv21 as v }
 //decorators
 {
     @annotation
-    class MyClass { }
+    class MyClass {}
 
     function annotation(target) {
         target.annotated = true;
@@ -289,31 +288,27 @@ export { sv21 as v }
 {
     let za = do {
         if (x > 10) {
-            'big';
+            ("big");
         } else {
-            'small';
+            ("small");
         }
     };
     // is equivalent to:
-    let zza = x > 10 ? 'big' : 'small';
+    let zza = x > 10 ? "big" : "small";
 }
 //function-bind
 {
-    obj:: func
+    obj::func;
     // is equivalent to:
-    func.bind(obj)
-    
-    :: obj.func
+    func.bind(obj)::obj.func;
     // is equivalent to:
-    obj.func.bind(obj)
+    obj.func.bind(obj);
 
-    obj:: func(val)
+    obj::func(val);
     // is equivalent to:
-    func.call(obj, val)
-    
-    :: obj.func(val)
+    func.call(obj, val)::obj.func(val);
     // is equivalent to:
-    obj.func.call(obj, val)
+    obj.func.call(obj, val);
 }
 //function-sent
 {
@@ -352,28 +347,32 @@ export { sv21 as v }
     const obj = {
         foo: {
             bar: {
-                baz: 42,
-            },
-        },
+                baz: 42
+            }
+        }
     };
 
-    const baz = obj ?.foo ?.bar ?.baz; // 42
+    const baz = obj?.foo?.bar?.baz; // 42
 
-    const safe = obj ?.qux ?.baz; // undefined
+    const safe = obj?.qux?.baz; // undefined
 
     // Optional chaining and normal chaining can be intermixed
-    obj ?.foo.bar ?.baz; // Only access `foo` if `obj` exists, and `baz` if
+    obj?.foo.bar?.baz; // Only access `foo` if `obj` exists, and `baz` if
     // `bar` exists
 }
 //pipeline-operator
 {
-    const sum = (nos) => nos.reduce((p, c) => p + (+c), 0);
-    const avg = (nos) => sum(nos) / nos.length;
+    const sum = nos => nos.reduce((p, c) => p + +c, 0);
+    const avg = nos => sum(nos) / nos.length;
     const tail = ([_, ...tail]) => tail;
     const tailAndAverage = tail |> avg; // valid?
 
-    function double(x) { return x + x; }
-    function add(x, y) { return x + y; }
+    function double(x) {
+        return x + x;
+    }
+    function add(x, y) {
+        return x + y;
+    }
 
     function boundScore(min, max, score) {
         return Math.max(min, Math.min(max, score));
@@ -381,17 +380,18 @@ export { sv21 as v }
 
     let person = { score: 25 };
 
-    let newScore = person.score
+    let newScore =
+        person.score
         |> double
         |> (_ => add(7, _))
         |> (_ => boundScore(0, 100, _));
 
-    newScore //=> 57
+    newScore; //=> 57
 }
 //throw-expressions
 {
-    function test(param = throw new Error('required!')) {
-        const test = param === true || throw new Error('Falsey!');
+    function test(param = throw new Error("required!")) {
+        const test = param === true || throw new Error("Falsey!");
     }
 }
 //react-jsx
@@ -399,12 +399,14 @@ export { sv21 as v }
     const Hr = () => {
         return <hr className="hr" />;
     };
-    var profile = <div>
-        <img src="avatar.png" className="profile" />
-        <h3>{[user.firstName, user.lastName].join(' ')}</h3>
-    </div>;
+    var profile = (
+        <div>
+            <img src="avatar.png" className="profile" />
+            <h3>{[user.firstName, user.lastName].join(" ")}</h3>
+        </div>
+    );
 
-    <Sometag />
+    <Sometag />;
 }
 //flow-strip-types
 // {
@@ -437,15 +439,15 @@ export { sv21 as v }
     class Counter extends HTMLElement {
         #xValue = 0;
 
-        get #x() { return this.#xValue; }
+        get #x() {
+            return this.#xValue;
+        }
         set #x(value) {
             this.#xValue = value;
-            window.requestAnimationFrame(
-                this.#render.bind(this)
-            );
+            window.requestAnimationFrame(this.#render.bind(this));
         }
 
-        #render() { }
+        #render() {}
 
         #clicked() {
             this.#x++;
@@ -454,7 +456,9 @@ export { sv21 as v }
 }
 //partial-application
 {
-    function add(x, y) { return x + y; }
+    function add(x, y) {
+        return x + y;
+    }
 
     const addOne = add(1, ?); // apply from the left
     addOne(2); // 3
@@ -462,13 +466,17 @@ export { sv21 as v }
     const addTen = add(?, 10); // apply from the right
     addTen(2); // 12
 
-    let newScore = player.score
-        |> add(7, ?)
-        |> clamp(0, 100, ?); // shallow stack, the pipe to `clamp` is the same frame as the pipe to `add`.
+    let newScore = player.score |> add(7, ?) |> clamp(0, 100, ?); // shallow stack, the pipe to `clamp` is the same frame as the pipe to `add`.
 }
 //proposal-throw-expressions
 {
-    function test(param = throw new Error('required!')) {
-        const test = param === true || throw new Error('Falsy!');
-      }
+    function test(param = throw new Error("required!")) {
+        const test = param === true || throw new Error("Falsy!");
+    }
 }
+//proposal-top-level-await
+//  "@babel/plugin-syntax-top-level-await"
+// {
+//     const dynamic = await import(computedModuleSpecifier);
+//     const data = await fetch(url);
+// }

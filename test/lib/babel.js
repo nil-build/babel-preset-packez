@@ -152,11 +152,10 @@ exports.vxx = vxx;
 
 function f() {}
 
-;
 {
   //typeof
   var s = num;
-  typeof s === 'number';
+  typeof s === "number";
 } //member-expression-literals
 
 {
@@ -170,10 +169,10 @@ function f() {}
 
   var foo = (_foo = {
     // changed
-    "bar": function bar() {},
+    bar: function bar() {},
     "1": function _() {},
     // not changed
-    "default": 1
+    default: 1
   }, _defineProperty(_foo, a, 2), _defineProperty(_foo, "foo", 1), _foo);
 } //reserved-words
 
@@ -381,8 +380,8 @@ function f() {}
 } //spread
 
 {
-  var za = ['a', 'b', 'c'];
-  var zb = [].concat(za, ['foo']);
+  var za = ["a", "b", "c"];
+  var zb = [].concat(za, ["foo"]);
   var zc = foo.apply(void 0, za);
 } //sticky-regex
 
@@ -566,10 +565,10 @@ function f() {}
 } //do-expressions
 
 {
-  var _za = x > 10 ? 'big' : 'small'; // is equivalent to:
+  var _za = x > 10 ? "big" : "small"; // is equivalent to:
 
 
-  var zza = x > 10 ? 'big' : 'small';
+  var zza = x > 10 ? "big" : "small";
 } //function-bind
 
 {
@@ -720,11 +719,11 @@ function f() {}
   var _test = function _test() {
     var param = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (e) {
       throw e;
-    }(new Error('required!'));
+    }(new Error("required!"));
 
     var test = param === true || function (e) {
       throw e;
-    }(new Error('Falsey!'));
+    }(new Error("Falsey!"));
   };
 } //react-jsx
 
@@ -738,7 +737,7 @@ function f() {}
   var profile = React.createElement("div", null, React.createElement("img", {
     src: "avatar.png",
     className: "profile"
-  }), React.createElement("h3", null, [user.firstName, user.lastName].join(' ')));
+  }), React.createElement("h3", null, [user.firstName, user.lastName].join(" ")));
   React.createElement(Sometag, null);
 } //flow-strip-types
 // {
@@ -884,10 +883,14 @@ function f() {}
   var _test2 = function _test2() {
     var param = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (e) {
       throw e;
-    }(new Error('required!'));
+    }(new Error("required!"));
 
     var test = param === true || function (e) {
       throw e;
-    }(new Error('Falsy!'));
+    }(new Error("Falsy!"));
   };
-}
+} //proposal-top-level-await
+// {
+//     const dynamic = await import(computedModuleSpecifier);
+//     const data = await fetch(url);
+// }

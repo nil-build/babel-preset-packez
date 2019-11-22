@@ -29,6 +29,7 @@ export default function(api, opts) {
         // modules: amd => Promise.resolve.then( () => require([path], callback) )
         // ...
         require.resolve("@babel/plugin-syntax-dynamic-import"),
+        // require.resolve("@babel/plugin-syntax-top-level-await"),
         require.resolve("@babel/plugin-proposal-async-generator-functions"),
         [
             require.resolve("@babel/plugin-proposal-decorators"),
