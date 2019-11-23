@@ -45,11 +45,11 @@ Object.keys(ns).forEach(function (key) {
   });
 });
 
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; if (obj != null) { var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _possibleConstructorReturn(self, call) { if (call && (typeof call === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
@@ -97,15 +97,11 @@ function _toPrimitive(input, hint) { if (typeof input !== "object" || input === 
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
 
@@ -133,7 +129,7 @@ function _awaitAsyncGenerator(value) { return new _AwaitValue(value); }
 
 function _wrapAsyncGenerator(fn) { return function () { return new _AsyncGenerator(fn.apply(this, arguments)); }; }
 
-function _AsyncGenerator(gen) { var front, back; function send(key, arg) { return new Promise(function (resolve, reject) { var request = { key: key, arg: arg, resolve: resolve, reject: reject, next: null }; if (back) { back = back.next = request; } else { front = back = request; resume(key, arg); } }); } function resume(key, arg) { try { var result = gen[key](arg); var value = result.value; var wrappedAwait = value instanceof _AwaitValue; Promise.resolve(wrappedAwait ? value.wrapped : value).then(function (arg) { if (wrappedAwait) { resume("next", arg); return; } settle(result.done ? "return" : "normal", arg); }, function (err) { resume("throw", err); }); } catch (err) { settle("throw", err); } } function settle(type, value) { switch (type) { case "return": front.resolve({ value: value, done: true }); break; case "throw": front.reject(value); break; default: front.resolve({ value: value, done: false }); break; } front = front.next; if (front) { resume(front.key, front.arg); } else { back = null; } } this._invoke = send; if (typeof gen.return !== "function") { this.return = undefined; } }
+function _AsyncGenerator(gen) { var front, back; function send(key, arg) { return new Promise(function (resolve, reject) { var request = { key: key, arg: arg, resolve: resolve, reject: reject, next: null }; if (back) { back = back.next = request; } else { front = back = request; resume(key, arg); } }); } function resume(key, arg) { try { var result = gen[key](arg); var value = result.value; var wrappedAwait = value instanceof _AwaitValue; Promise.resolve(wrappedAwait ? value.wrapped : value).then(function (arg) { if (wrappedAwait) { resume(key === "return" ? "return" : "next", arg); return; } settle(result.done ? "return" : "normal", arg); }, function (err) { resume("throw", err); }); } catch (err) { settle("throw", err); } } function settle(type, value) { switch (type) { case "return": front.resolve({ value: value, done: true }); break; case "throw": front.reject(value); break; default: front.resolve({ value: value, done: false }); break; } front = front.next; if (front) { resume(front.key, front.arg); } else { back = null; } } this._invoke = send; if (typeof gen.return !== "function") { this.return = undefined; } }
 
 if (typeof Symbol === "function" && Symbol.asyncIterator) { _AsyncGenerator.prototype[Symbol.asyncIterator] = function () { return this; }; }
 
@@ -411,31 +407,21 @@ function f() {}
 //async-to-generator
 
 {
-  var _foo2 =
-  /*#__PURE__*/
-  function () {
-    var _ref2 = _asyncToGenerator(
-    /*#__PURE__*/
-    _regenerator.default.mark(function _callee() {
-      return _regenerator.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              _context.next = 2;
-              return bar();
+  var _foo2 = function _foo2() {
+    return _regenerator.default.async(function _foo2$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _regenerator.default.awrap(bar());
 
-            case 2:
-            case "end":
-              return _context.stop();
-          }
+          case 2:
+          case "end":
+            return _context.stop();
         }
-      }, _callee);
-    }));
-
-    return function _foo2() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
+      }
+    });
+  };
 } //ES2018
 //async-generator-functions
 
@@ -457,8 +443,8 @@ function f() {}
   }(function () {
     _agf = _wrapAsyncGenerator(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2() {
-      return _regenerator.default.wrap(function _callee2$(_context2) {
+    _regenerator.default.mark(function _callee() {
+      return _regenerator.default.wrap(function _callee$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
@@ -474,7 +460,7 @@ function f() {}
               return _context2.stop();
           }
         }
-      }, _callee2);
+      }, _callee);
     }));
     return _agf.apply(this, arguments);
   });
@@ -588,12 +574,12 @@ function f() {}
 
 {
   var generator = function () {
-    var _ref3 = _skipFirstGeneratorNext(
+    var _ref2 = _skipFirstGeneratorNext(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee3() {
+    _regenerator.default.mark(function _callee2() {
       var _functionSent;
 
-      return _regenerator.default.wrap(function _callee3$(_context4) {
+      return _regenerator.default.wrap(function _callee2$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
@@ -617,11 +603,11 @@ function f() {}
               return _context4.stop();
           }
         }
-      }, _callee3);
+      }, _callee2);
     }));
 
     return function generator() {
-      return _ref3.apply(this, arguments);
+      return _ref2.apply(this, arguments);
     };
   }();
 
@@ -674,7 +660,7 @@ function f() {}
 } //pipeline-operator
 
 {
-  var _tail, _ref6, _ref7, _person$score;
+  var _tail, _ref5, _ref6, _person$score;
 
   // valid?
   var _double = function _double(x) {
@@ -699,10 +685,10 @@ function f() {}
     return sum(nos) / nos.length;
   };
 
-  var tail = function tail(_ref4) {
-    var _ref5 = _toArray(_ref4),
-        _ = _ref5[0],
-        tail = _ref5.slice(1);
+  var tail = function tail(_ref3) {
+    var _ref4 = _toArray(_ref3),
+        _ = _ref4[0],
+        tail = _ref4.slice(1);
 
     return tail;
   };
@@ -711,7 +697,7 @@ function f() {}
   var person = {
     score: 25
   };
-  var newScore = (_ref6 = (_ref7 = (_person$score = person.score, _double(_person$score)), add(7, _ref7)), boundScore(0, 100, _ref6));
+  var newScore = (_ref5 = (_ref6 = (_person$score = person.score, _double(_person$score)), add(7, _ref6)), boundScore(0, 100, _ref5));
   newScore; //=> 57
 } //throw-expressions
 
@@ -853,7 +839,7 @@ function f() {}
 } //partial-application
 
 {
-  var _add2, _add3, _ref8, _player$score, _add4, _clamp;
+  var _add2, _add3, _ref7, _player$score, _add4, _clamp;
 
   var _add = function _add(x, y) {
     return x + y;
@@ -871,11 +857,11 @@ function f() {}
 
   addTen(2); // 12
 
-  var _newScore = (_ref8 = (_player$score = player.score, (_add4 = _add, function _add(_argPlaceholder3) {
+  var _newScore = (_ref7 = (_player$score = player.score, (_add4 = _add, function _add(_argPlaceholder3) {
     return _add4(7, _argPlaceholder3);
   })(_player$score)), (_clamp = clamp, function clamp(_argPlaceholder4) {
     return _clamp(0, 100, _argPlaceholder4);
-  })(_ref8)); // shallow stack, the pipe to `clamp` is the same frame as the pipe to `add`.
+  })(_ref7)); // shallow stack, the pipe to `clamp` is the same frame as the pipe to `add`.
 
 } //proposal-throw-expressions
 
@@ -890,7 +876,15 @@ function f() {}
     }(new Error("Falsy!"));
   };
 } //proposal-top-level-await
-// {
-//     const dynamic = await import(computedModuleSpecifier);
-//     const data = await fetch(url);
-// }
+
+{
+  var dynamic = await Promise.resolve().then(function () {
+    return _interopRequireWildcard(require("".concat(computedModuleSpecifier)));
+  });
+  var data = await fetch(url);
+  console.log(dynamic, data);
+} //flow
+
+{
+  var _foo3 = function _foo3(one, two, three) {};
+}

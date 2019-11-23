@@ -5,6 +5,8 @@ module.exports = function(api, opts) {
     const defaultOpts = {
         modules: "commonjs",
         strictMode: true,
+        useFlow: true,
+        useTypeScript: false,
         decoratorsBeforeExport: true,
         // corejs: 3,
         // useBuiltIns: "usage",
@@ -28,13 +30,33 @@ module.exports = function(api, opts) {
             [
                 require.resolve("@babel/preset-env"),
                 omit(opts, [
+                    "useFlow",
+                    "useTypeScript",
                     "runtimeOptions",
                     "strictMode",
                     "decoratorsBeforeExport"
                 ])
             ],
-            require.resolve("@babel/preset-react")
-        ],
-        plugins: plugins(api, opts)
+            require.resolve("@babel/preset-react"),
+            opts.useTypeScript && [require.resolve("@babel/preset-typescript")]
+        ].filter(Boolean),
+        plugins: plugins(api, opts),
+        overrides: [
+            opts.useFlow && {
+                exclude: /\.tsx?$/,
+                plugins: [
+                    require.resolve("@babel/plugin-transform-flow-strip-types")
+                ]
+            },
+            opts.useTypeScript && {
+                test: /\.tsx?$/,
+                plugins: [
+                    [
+                        require.resolve("@babel/plugin-proposal-decorators"),
+                        { legacy: true }
+                    ]
+                ]
+            }
+        ].filter(Boolean)
     };
 };

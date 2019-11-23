@@ -3,6 +3,7 @@
         [
             "./lib",
             {
+                "useTypeScript": true,
                 "modules": "cjs",
                 "strictMode": false,
                 "runtimeOptions": {

@@ -475,8 +475,13 @@ export { sv21 as v };
     }
 }
 //proposal-top-level-await
-//  "@babel/plugin-syntax-top-level-await"
-// {
-//     const dynamic = await import(computedModuleSpecifier);
-//     const data = await fetch(url);
-// }
+{
+    const dynamic = await import(computedModuleSpecifier);
+    const data = await fetch(url);
+    console.log(dynamic, data);
+}
+
+//flow
+{
+    function foo(one: any, two: number, three?): string {}
+}
