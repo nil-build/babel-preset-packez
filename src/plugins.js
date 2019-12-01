@@ -89,8 +89,8 @@ export default function(api, opts) {
         [
             require.resolve("@babel/plugin-proposal-object-rest-spread"),
             {
-                // loose: true,
                 // 使用Object.assign代替babel的helper方法
+                loose: true,
                 useBuiltIns: true
             }
         ],
