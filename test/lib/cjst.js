@@ -1,6 +1,6 @@
-var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _marked =
 /*#__PURE__*/

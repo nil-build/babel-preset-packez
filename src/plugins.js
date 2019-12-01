@@ -53,7 +53,6 @@ export default function(api, opts) {
         // modules: amd => Promise.resolve.then( () => require([path], callback) )
         // ...
         require.resolve("@babel/plugin-syntax-dynamic-import"),
-        // require.resolve("@babel/plugin-syntax-top-level-await"),
         require.resolve("@babel/plugin-proposal-async-generator-functions"),
         [
             require.resolve("@babel/plugin-proposal-decorators"),
@@ -90,6 +89,7 @@ export default function(api, opts) {
         [
             require.resolve("@babel/plugin-proposal-object-rest-spread"),
             {
+                // loose: true,
                 // 使用Object.assign代替babel的helper方法
                 useBuiltIns: true
             }

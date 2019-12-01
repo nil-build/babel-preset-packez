@@ -3,11 +3,10 @@
         [
             "./lib",
             {
-                "useTypeScript": true,
                 "modules": "cjs",
                 "strictMode": false,
                 "runtimeOptions": {
-                    "helpers": false
+                    "helpers": true
                 }
             }
         ]

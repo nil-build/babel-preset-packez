@@ -15,6 +15,10 @@ export { sv21 };
 export { sv21 as v };
 
 {
+    const [a, b] = at();
+}
+
+{
     //typeof
     const s = num;
     typeof s === "number";
