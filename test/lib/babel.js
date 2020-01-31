@@ -54,6 +54,8 @@ var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/h
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
 var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _get2 = _interopRequireDefault(require("@babel/runtime/helpers/get"));
@@ -376,21 +378,31 @@ function f() {}
 //async-to-generator
 
 {
-  var _foo2 = function _foo2() {
-    return _regenerator.default.async(function _foo2$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _regenerator.default.awrap(bar());
+  var _foo2 =
+  /*#__PURE__*/
+  function () {
+    var _ref2 = (0, _asyncToGenerator2.default)(
+    /*#__PURE__*/
+    _regenerator.default.mark(function _callee() {
+      return _regenerator.default.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return bar();
 
-          case 2:
-          case "end":
-            return _context.stop();
+            case 2:
+            case "end":
+              return _context.stop();
+          }
         }
-      }
-    });
-  };
+      }, _callee);
+    }));
+
+    return function _foo2() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
 } //ES2018
 //async-generator-functions
 
@@ -412,8 +424,8 @@ function f() {}
   }(function () {
     _agf = (0, _wrapAsyncGenerator2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee() {
-      return _regenerator.default.wrap(function _callee$(_context2) {
+    _regenerator.default.mark(function _callee2() {
+      return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
@@ -429,7 +441,7 @@ function f() {}
               return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     }));
     return _agf.apply(this, arguments);
   });
@@ -539,12 +551,12 @@ function f() {}
 
 {
   var generator = function () {
-    var _ref2 = (0, _skipFirstGeneratorNext2.default)(
+    var _ref3 = (0, _skipFirstGeneratorNext2.default)(
     /*#__PURE__*/
-    _regenerator.default.mark(function _callee2() {
+    _regenerator.default.mark(function _callee3() {
       var _functionSent;
 
-      return _regenerator.default.wrap(function _callee2$(_context4) {
+      return _regenerator.default.wrap(function _callee3$(_context4) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
@@ -568,11 +580,11 @@ function f() {}
               return _context4.stop();
           }
         }
-      }, _callee2);
+      }, _callee3);
     }));
 
     return function generator() {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 
@@ -625,7 +637,7 @@ function f() {}
 } //pipeline-operator
 
 {
-  var _tail, _ref5, _ref6, _person$score;
+  var _tail, _ref6, _ref7, _person$score;
 
   // valid?
   var _double = function _double(x) {
@@ -650,10 +662,10 @@ function f() {}
     return sum(nos) / nos.length;
   };
 
-  var tail = function tail(_ref3) {
-    var _ref4 = (0, _toArray2.default)(_ref3),
-        _ = _ref4[0],
-        tail = _ref4.slice(1);
+  var tail = function tail(_ref4) {
+    var _ref5 = (0, _toArray2.default)(_ref4),
+        _ = _ref5[0],
+        tail = _ref5.slice(1);
 
     return tail;
   };
@@ -662,7 +674,7 @@ function f() {}
   var person = {
     score: 25
   };
-  var newScore = (_ref5 = (_ref6 = (_person$score = person.score, _double(_person$score)), add(7, _ref6)), boundScore(0, 100, _ref5));
+  var newScore = (_ref6 = (_ref7 = (_person$score = person.score, _double(_person$score)), add(7, _ref7)), boundScore(0, 100, _ref6));
   newScore; //=> 57
 } //throw-expressions
 
@@ -803,7 +815,7 @@ function f() {}
 } //partial-application
 
 {
-  var _add2, _add3, _ref7, _player$score, _add4, _clamp;
+  var _add2, _add3, _ref8, _player$score, _add4, _clamp;
 
   var _add = function _add(x, y) {
     return x + y;
@@ -821,11 +833,11 @@ function f() {}
 
   addTen(2); // 12
 
-  var _newScore = (_ref7 = (_player$score = player.score, (_add4 = _add, function _add(_argPlaceholder3) {
+  var _newScore = (_ref8 = (_player$score = player.score, (_add4 = _add, function _add(_argPlaceholder3) {
     return _add4(7, _argPlaceholder3);
   })(_player$score)), (_clamp = clamp, function clamp(_argPlaceholder4) {
     return _clamp(0, 100, _argPlaceholder4);
-  })(_ref7)); // shallow stack, the pipe to `clamp` is the same frame as the pipe to `add`.
+  })(_ref8)); // shallow stack, the pipe to `clamp` is the same frame as the pipe to `add`.
 
 } //proposal-throw-expressions
 
