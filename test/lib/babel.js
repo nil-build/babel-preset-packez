@@ -813,33 +813,17 @@ function f() {}
     (0, _classPrivateFieldSet2.default)(this, _x5, (_this$x = +(0, _classPrivateFieldGet2.default)(this, _x5)) + 1), _this$x;
   };
 } //partial-application
-
-{
-  var _add2, _add3, _ref8, _player$score, _add4, _clamp;
-
-  var _add = function _add(x, y) {
-    return x + y;
-  };
-
-  var addOne = (_add2 = _add, function _add(_argPlaceholder) {
-    return _add2(1, _argPlaceholder);
-  }); // apply from the left
-
-  addOne(2); // 3
-
-  var addTen = (_add3 = _add, function _add(_argPlaceholder2) {
-    return _add3(_argPlaceholder2, 10);
-  }); // apply from the right
-
-  addTen(2); // 12
-
-  var _newScore = (_ref8 = (_player$score = player.score, (_add4 = _add, function _add(_argPlaceholder3) {
-    return _add4(7, _argPlaceholder3);
-  })(_player$score)), (_clamp = clamp, function clamp(_argPlaceholder4) {
-    return _clamp(0, 100, _argPlaceholder4);
-  })(_ref8)); // shallow stack, the pipe to `clamp` is the same frame as the pipe to `add`.
-
-} //proposal-throw-expressions
+// {
+//     function add(x, y) {
+//         return x + y;
+//     }
+//     const addOne = add(1, ?); // apply from the left
+//     addOne(2); // 3
+//     const addTen = add(?, 10); // apply from the right
+//     addTen(2); // 12
+//     let newScore = player.score |> add(7, ?) |> clamp(0, 100, ?); // shallow stack, the pipe to `clamp` is the same frame as the pipe to `add`.
+// }
+//proposal-throw-expressions
 
 {
   var _test2 = function _test2() {
@@ -860,7 +844,6 @@ function f() {}
   var data = await fetch(url);
   console.log(dynamic, data);
 } //flow
-
-{
-  var _foo3 = function _foo3(one, two, three) {};
-}
+// {
+// 	function foo(one: any, two: number, three?): string {}
+// }
