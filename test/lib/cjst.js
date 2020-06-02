@@ -2,9 +2,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
-var _marked =
-/*#__PURE__*/
-_regenerator.default.mark(foo);
+var _marked = /*#__PURE__*/_regenerator.default.mark(foo);
 
 function cssWithMappingToString(item, useSourceMap) {}
 

@@ -51,15 +51,19 @@ var MyApp = _decorate([ta], function (_initialize) {
       kind: "field",
       static: true,
       key: "a",
-      value: function value() {
+
+      value() {
         return 3;
       }
+
     }, {
       kind: "field",
       key: "title",
-      value: function value() {
+
+      value() {
         return 'test';
       }
+
     }, {
       kind: "method",
       key: "say",
@@ -67,9 +71,11 @@ var MyApp = _decorate([ta], function (_initialize) {
     }, {
       kind: "field",
       key: "a",
-      value: function value() {
+
+      value() {
         return function () {};
       }
+
     }]
   };
 }); //cst a = 4;
@@ -80,9 +86,7 @@ function test() {
 }
 
 function _test() {
-  _test = (0, _asyncToGenerator2.default)(
-  /*#__PURE__*/
-  _regenerator.default.mark(function _callee() {
+  _test = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
     var a;
     return _regenerator.default.wrap(function _callee$(_context) {
       while (1) {

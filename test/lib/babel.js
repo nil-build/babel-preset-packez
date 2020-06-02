@@ -36,11 +36,11 @@ exports.v = exports.sv21 = exports.vxx = void 0;
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
 var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
 
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
 
 var _wrapNativeSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/wrapNativeSuper"));
 
@@ -50,23 +50,23 @@ var _classPrivateFieldGet2 = _interopRequireDefault(require("@babel/runtime/help
 
 var _skipFirstGeneratorNext2 = _interopRequireDefault(require("@babel/runtime/helpers/skipFirstGeneratorNext"));
 
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
 var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-var _getPrototypeOf3 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
 var _get2 = _interopRequireDefault(require("@babel/runtime/helpers/get"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
 
 var _toArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toArray"));
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
-
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
@@ -86,6 +86,10 @@ Object.keys(ns).forEach(function (key) {
     }
   });
 });
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 
@@ -108,6 +112,12 @@ function _optionalCallableProperty(obj, name) { var value = obj[name]; if (value
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
 
 function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 var sv21;
 exports.v = exports.sv21 = sv21;
@@ -135,15 +145,15 @@ function f() {}
 } //property-literals
 
 {
-  var _foo;
-
-  var foo = (_foo = {
+  var foo = {
     // changed
     bar: function bar() {},
     "1": function _() {},
     // not changed
-    default: 1
-  }, (0, _defineProperty2.default)(_foo, a, 2), (0, _defineProperty2.default)(_foo, "foo", 1), _foo);
+    default: 1,
+    [a]: 2,
+    foo: 1
+  };
 } //reserved-words
 
 {
@@ -179,13 +189,15 @@ function f() {}
   var bob = {
     _name: "Bob",
     _friends: ["Sally", "Tom"],
-    printFriends: function printFriends() {
+
+    printFriends() {
       var _this = this;
 
       this._friends.forEach(function (f) {
         return console.log(_this._name + " knows " + f);
       });
     }
+
   };
   console.log(bob.printFriends());
 } //block-scoped-functions
@@ -207,9 +219,7 @@ function f() {}
 } //classes
 
 {
-  var Test =
-  /*#__PURE__*/
-  function () {
+  var Test = /*#__PURE__*/function () {
     function Test(name) {
       (0, _classCallCheck2.default)(this, Test);
       this.name = name;
@@ -226,9 +236,12 @@ function f() {}
 } //computed-properties
 
 {
-  var _obj;
-
-  var obj = (_obj = {}, (0, _defineProperty2.default)(_obj, "x" + foo, "heh"), (0, _defineProperty2.default)(_obj, "y" + bar, "noo"), (0, _defineProperty2.default)(_obj, "foo", "foo"), (0, _defineProperty2.default)(_obj, "bar", "bar"), _obj);
+  var obj = {
+    ["x" + foo]: "heh",
+    ["y" + bar]: "noo",
+    foo: "foo",
+    bar: "bar"
+  };
 } //destructuring
 
 {
@@ -243,39 +256,31 @@ function f() {}
 } //duplicate-keys
 
 {
-  var x = (0, _defineProperty2.default)({
-    a: 5
-  }, "a", 6);
-  var y = (0, _defineProperty2.default)({
+  var x = {
+    a: 5,
+    a: 6
+  };
+  var y = {
     get a() {},
 
-    set a(x) {}
+    set a(x) {},
 
-  }, "a", 3);
+    a: 3
+  };
 } //for-of
 
 {
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
+  var _iterator = _createForOfIteratorHelper(foo),
+      _step;
 
   try {
-    for (var _iterator = foo[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var i = _step.value;
     }
   } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
+    _iterator.e(err);
   } finally {
-    try {
-      if (!_iteratorNormalCompletion && _iterator.return != null) {
-        _iterator.return();
-      }
-    } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
-      }
-    }
+    _iterator.f();
   }
 } //function-name
 
@@ -290,11 +295,11 @@ function f() {}
 } //literals
 
 {
-  var b = 3; // binary integer literal
+  var b = 0b11; // binary integer literal
 
-  var o = 7; // octal integer literal
+  var o = 0o7; // octal integer literal
 
-  var u = "Hello\n\t!"; // unicode string literals, newline and tab
+  var u = "Hello\u{000A}\u{0009}!"; // unicode string literals, newline and tab
 } //new-target
 
 {
@@ -308,17 +313,19 @@ function f() {}
 } //object-super
 
 {
-  var _obj3;
+  var _obj2;
 
-  var _obj2 = {
-    say: function say() {
+  var _obj = {
+    say() {
       return "Hello";
     }
+
   };
-  var obj2 = _obj3 = {
-    say: function say() {
-      return (0, _get2.default)((0, _getPrototypeOf3.default)(_obj3), "say", this).call(this) + "World!";
+  var obj2 = _obj2 = {
+    say() {
+      return (0, _get2.default)((0, _getPrototypeOf2.default)(_obj2), "say", this).call(this) + "World!";
     }
+
   };
 } //parameters
 
@@ -340,9 +347,9 @@ function f() {}
 
 {
   var o = {
-    a: a,
-    b: b,
-    c: c
+    a,
+    b,
+    c
   };
 } //spread
 
@@ -371,19 +378,15 @@ function f() {}
 //exponentiation-operator
 
 {
-  var _x3 = Math.pow(10, 2);
+  var _x2 = Math.pow(10, 2);
 
-  _x3 = Math.pow(_x3, 3);
+  _x2 = Math.pow(_x2, 3);
 } //ES2017
 //async-to-generator
 
 {
-  var _foo2 =
-  /*#__PURE__*/
-  function () {
-    var _ref2 = (0, _asyncToGenerator2.default)(
-    /*#__PURE__*/
-    _regenerator.default.mark(function _callee() {
+  var _foo = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -399,7 +402,7 @@ function f() {}
       }, _callee);
     }));
 
-    return function _foo2() {
+    return function _foo() {
       return _ref2.apply(this, arguments);
     };
   }();
@@ -422,9 +425,7 @@ function f() {}
 
     return _agf;
   }(function () {
-    _agf = (0, _wrapAsyncGenerator2.default)(
-    /*#__PURE__*/
-    _regenerator.default.mark(function _callee2() {
+    _agf = (0, _wrapAsyncGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -462,13 +463,13 @@ function f() {}
     a: 3,
     b: 4
   }, ui),
-      _x4 = _x$y$a$b$ui.x,
-      _y3 = _x$y$a$b$ui.y,
+      _x3 = _x$y$a$b$ui.x,
+      _y2 = _x$y$a$b$ui.y,
       z = (0, _objectWithoutProperties2.default)(_x$y$a$b$ui, ["x", "y"]);
 
-  console.log(_x4); // 1
+  console.log(_x3); // 1
 
-  console.log(_y3); // 2
+  console.log(_y2); // 2
 
   console.log(z); // { a: 3, b: 4 }
 } //optional-catch-binding
@@ -551,9 +552,7 @@ function f() {}
 
 {
   var generator = function () {
-    var _ref3 = (0, _skipFirstGeneratorNext2.default)(
-    /*#__PURE__*/
-    _regenerator.default.mark(function _callee3() {
+    var _ref3 = (0, _skipFirstGeneratorNext2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var _functionSent;
 
       return _regenerator.default.wrap(function _callee3$(_context4) {
@@ -593,15 +592,13 @@ function f() {}
 
   iterator.next(2); // Logs "Yield 2"
 } //logical-assignment-operators
-
-{
-  var _obj$a, _obj$a2;
-
-  a || (a = b);
-  (_obj$a = obj.a).b || (_obj$a.b = c);
-  a && (a = b);
-  (_obj$a2 = obj.a).b && (_obj$a2.b = c);
-} //nullish-coalescing-operator
+// {
+// 	a ||= b;
+// 	obj.a.b ||= c;
+// 	a &&= b;
+// 	obj.a.b &&= c;
+// }
+//nullish-coalescing-operator
 
 {
   var _object$foo;
@@ -618,89 +615,66 @@ function f() {}
 } //optional-chaining
 
 {
-  var _obj4$foo, _obj4$foo$bar, _obj4$qux, _obj4$foo$bar2;
+  var _obj3$foo, _obj3$foo$bar, _obj3$qux, _obj3$foo$bar2;
 
-  var _obj4 = {
+  var _obj3 = {
     foo: {
       bar: {
         baz: 42
       }
     }
   };
-  var baz = _obj4 === null || _obj4 === void 0 ? void 0 : (_obj4$foo = _obj4.foo) === null || _obj4$foo === void 0 ? void 0 : (_obj4$foo$bar = _obj4$foo.bar) === null || _obj4$foo$bar === void 0 ? void 0 : _obj4$foo$bar.baz; // 42
+  var baz = _obj3 === null || _obj3 === void 0 ? void 0 : (_obj3$foo = _obj3.foo) === null || _obj3$foo === void 0 ? void 0 : (_obj3$foo$bar = _obj3$foo.bar) === null || _obj3$foo$bar === void 0 ? void 0 : _obj3$foo$bar.baz; // 42
 
-  var safe = _obj4 === null || _obj4 === void 0 ? void 0 : (_obj4$qux = _obj4.qux) === null || _obj4$qux === void 0 ? void 0 : _obj4$qux.baz; // undefined
+  var safe = _obj3 === null || _obj3 === void 0 ? void 0 : (_obj3$qux = _obj3.qux) === null || _obj3$qux === void 0 ? void 0 : _obj3$qux.baz; // undefined
   // Optional chaining and normal chaining can be intermixed
 
-  _obj4 === null || _obj4 === void 0 ? void 0 : (_obj4$foo$bar2 = _obj4.foo.bar) === null || _obj4$foo$bar2 === void 0 ? void 0 : _obj4$foo$bar2.baz; // Only access `foo` if `obj` exists, and `baz` if
+  _obj3 === null || _obj3 === void 0 ? void 0 : (_obj3$foo$bar2 = _obj3.foo.bar) === null || _obj3$foo$bar2 === void 0 ? void 0 : _obj3$foo$bar2.baz; // Only access `foo` if `obj` exists, and `baz` if
   // `bar` exists
 } //pipeline-operator
-
-{
-  var _tail, _ref6, _ref7, _person$score;
-
-  // valid?
-  var _double = function _double(x) {
-    return x + x;
-  };
-
-  var add = function add(x, y) {
-    return x + y;
-  };
-
-  var boundScore = function boundScore(min, max, score) {
-    return Math.max(min, Math.min(max, score));
-  };
-
-  var sum = function sum(nos) {
-    return nos.reduce(function (p, c) {
-      return p + +c;
-    }, 0);
-  };
-
-  var avg = function avg(nos) {
-    return sum(nos) / nos.length;
-  };
-
-  var tail = function tail(_ref4) {
-    var _ref5 = (0, _toArray2.default)(_ref4),
-        _ = _ref5[0],
-        tail = _ref5.slice(1);
-
-    return tail;
-  };
-
-  var tailAndAverage = (_tail = tail, avg(_tail));
-  var person = {
-    score: 25
-  };
-  var newScore = (_ref6 = (_ref7 = (_person$score = person.score, _double(_person$score)), add(7, _ref7)), boundScore(0, 100, _ref6));
-  newScore; //=> 57
-} //throw-expressions
-
-{
-  var _test = function _test() {
-    var param = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (e) {
-      throw e;
-    }(new Error("required!"));
-
-    var test = param === true || function (e) {
-      throw e;
-    }(new Error("Falsey!"));
-  };
-} //react-jsx
+// {
+//     const sum = (nos) => nos.reduce((p, c) => p + +c, 0);
+//     const avg = (nos) => sum(nos) / nos.length;
+//     const tail = ([_, ...tail]) => tail;
+//     const tailAndAverage = tail |> avg; // valid?
+//     function double(x) {
+//         return x + x;
+//     }
+//     function add(x, y) {
+//         return x + y;
+//     }
+//     function boundScore(min, max, score) {
+//         return Math.max(min, Math.min(max, score));
+//     }
+//     let person = { score: 25 };
+//     let newScore =
+//         person.score
+//         |> double
+//         |> ((_) => add(7, _))
+//         |> ((_) => boundScore(0, 100, _));
+//     newScore; //=> 57
+// }
+//throw-expressions
+// {
+//     function test(param = throw new Error("required!")) {
+//         const test = param === true || throw new Error("Falsey!");
+//     }
+// }
+//react-jsx
 
 {
   var Hr = function Hr() {
-    return React.createElement("hr", {
+    return /*#__PURE__*/React.createElement("hr", {
       className: "hr"
     });
   };
 
-  var profile = React.createElement("div", null, React.createElement("img", {
+  var profile = /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("img", {
     src: "avatar.png",
     className: "profile"
-  }), React.createElement("h3", null, [user.firstName, user.lastName].join(" ")));
+  }), /*#__PURE__*/React.createElement("h3", null, [user.firstName, user.lastName].join(" ")));
+
+  /*#__PURE__*/
   React.createElement(Sometag, null);
 } //flow-strip-types
 // {
@@ -730,9 +704,7 @@ function f() {}
 } //regenerator
 
 {
-  var _a6 =
-  /*#__PURE__*/
-  _regenerator.default.mark(function _a6() {
+  var _a6 = /*#__PURE__*/_regenerator.default.mark(function _a6() {
     return _regenerator.default.wrap(function _a6$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
@@ -750,14 +722,12 @@ function f() {}
 } //private-methods
 
 {
-  var Counter =
-  /*#__PURE__*/
-  function (_HTMLElement) {
+  var Counter = /*#__PURE__*/function (_HTMLElement) {
     (0, _inherits2.default)(Counter, _HTMLElement);
 
-    function Counter() {
-      var _getPrototypeOf2;
+    var _super = _createSuper(Counter);
 
+    function Counter() {
       var _this3;
 
       (0, _classCallCheck2.default)(this, Counter);
@@ -766,13 +736,13 @@ function f() {}
         args[_key2] = arguments[_key2];
       }
 
-      _this3 = (0, _possibleConstructorReturn2.default)(this, (_getPrototypeOf2 = (0, _getPrototypeOf3.default)(Counter)).call.apply(_getPrototypeOf2, [this].concat(args)));
+      _this3 = _super.call.apply(_super, [this].concat(args));
 
       _clicked.add((0, _assertThisInitialized2.default)(_this3));
 
       _render.add((0, _assertThisInitialized2.default)(_this3));
 
-      _x5.set((0, _assertThisInitialized2.default)(_this3), {
+      _x4.set((0, _assertThisInitialized2.default)(_this3), {
         get: _get_x,
         set: _set_x
       });
@@ -786,11 +756,11 @@ function f() {}
     }
 
     return Counter;
-  }((0, _wrapNativeSuper2.default)(HTMLElement));
+  }( /*#__PURE__*/(0, _wrapNativeSuper2.default)(HTMLElement));
 
   var _xValue = new WeakMap();
 
-  var _x5 = new WeakMap();
+  var _x4 = new WeakMap();
 
   var _render = new WeakSet();
 
@@ -810,7 +780,7 @@ function f() {}
   var _clicked2 = function _clicked2() {
     var _this$x;
 
-    (0, _classPrivateFieldSet2.default)(this, _x5, (_this$x = +(0, _classPrivateFieldGet2.default)(this, _x5)) + 1), _this$x;
+    (0, _classPrivateFieldSet2.default)(this, _x4, (_this$x = +(0, _classPrivateFieldGet2.default)(this, _x4)) + 1), _this$x;
   };
 } //partial-application
 // {
@@ -824,22 +794,16 @@ function f() {}
 //     let newScore = player.score |> add(7, ?) |> clamp(0, 100, ?); // shallow stack, the pipe to `clamp` is the same frame as the pipe to `add`.
 // }
 //proposal-throw-expressions
+// {
+//     function test(param = throw new Error("required!")) {
+//         const test = param === true || throw new Error("Falsy!");
+//     }
+// }
+//proposal-top-level-await
 
 {
-  var _test2 = function _test2() {
-    var param = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (e) {
-      throw e;
-    }(new Error("required!"));
-
-    var test = param === true || function (e) {
-      throw e;
-    }(new Error("Falsy!"));
-  };
-} //proposal-top-level-await
-
-{
-  var dynamic = await Promise.resolve().then(function () {
-    return (0, _interopRequireWildcard2.default)(require("".concat(computedModuleSpecifier)));
+  var dynamic = await Promise.resolve("".concat(computedModuleSpecifier)).then(function (s) {
+    return (0, _interopRequireWildcard2.default)(require(s));
   });
   var data = await fetch(url);
   console.log(dynamic, data);
