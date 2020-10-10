@@ -14,7 +14,7 @@ export default function (api, opts) {
         amd: require.resolve("@babel/plugin-transform-modules-amd"),
         systemjs: require.resolve("@babel/plugin-transform-modules-systemjs"),
     };
-    const modulePlugin = modulesMap[modules] && [
+    const modulePlugin = strictMode && modulesMap[modules] && [
         modulesMap[modules],
         {
             strictMode,

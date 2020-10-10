@@ -1,10 +1,10 @@
+"use strict";
+
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
 var _toArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toArray"));
 
@@ -39,11 +39,12 @@ var glob = require('fast-glob');
 var t = require('./cjst');
 
 var MyApp = _decorate([ta], function (_initialize) {
-  var MyApp = function MyApp() {
-    (0, _classCallCheck2.default)(this, MyApp);
+  class MyApp {
+    constructor() {
+      _initialize(this);
+    }
 
-    _initialize(this);
-  };
+  }
 
   return {
     F: MyApp,
@@ -73,7 +74,7 @@ var MyApp = _decorate([ta], function (_initialize) {
       key: "a",
 
       value() {
-        return function () {};
+        return () => {};
       }
 
     }]
@@ -109,15 +110,10 @@ function _test() {
 }
 
 test();
-new Promise(function (r) {
-  return r(1);
-});
+new Promise(r => r(1));
 var x = new Set();
 
-module.exports = function () {
-  var appSrc = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'src';
-  var appDist = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'dest';
-  var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+module.exports = function (appSrc = 'src', appDist = 'dest', options = {}) {
   var defaults = {
     cwd: process.cwd(),
     cleanDist: true,
@@ -135,8 +131,8 @@ module.exports = function () {
 
   }, options.globOptions, {
     cwd: path.resolve(options.cwd, appSrc)
-  })).then(function (files) {
-    files.forEach(function (file) {
+  })).then(files => {
+    files.forEach(file => {
       var absSrcFile = path.resolve(options.cwd, appSrc, file);
       var absDestFile = path.resolve(options.cwd, appDist, file);
       fs.copySync(absSrcFile, absDestFile);

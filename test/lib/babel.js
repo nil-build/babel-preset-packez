@@ -1,3 +1,5 @@
+"use strict";
+
 var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard");
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
@@ -36,14 +38,6 @@ exports.v = exports.sv21 = exports.vxx = void 0;
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
-var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
-
-var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
-
-var _possibleConstructorReturn2 = _interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn"));
-
-var _wrapNativeSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/wrapNativeSuper"));
-
 var _classPrivateFieldSet2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldSet"));
 
 var _classPrivateFieldGet2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldGet"));
@@ -58,15 +52,7 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-var _get2 = _interopRequireDefault(require("@babel/runtime/helpers/get"));
-
-var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
-
 var _toArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toArray"));
-
-var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
-
-var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
 
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
@@ -86,10 +72,6 @@ Object.keys(ns).forEach(function (key) {
     }
   });
 });
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0, _getPrototypeOf2.default)(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0, _getPrototypeOf2.default)(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0, _possibleConstructorReturn2.default)(this, result); }; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
 
@@ -175,15 +157,11 @@ function f() {}
 } //arrow-functions
 
 {
-  var a1 = function a1() {};
+  var a1 = () => {};
 
-  var a2 = function a2(b) {
-    return b;
-  };
+  var a2 = b => b;
 
-  var double = [1, 2, 3].map(function (num) {
-    return num * 2;
-  });
+  var double = [1, 2, 3].map(num => num * 2);
   console.log(double); // [2,4,6]
 
   var bob = {
@@ -191,11 +169,7 @@ function f() {}
     _friends: ["Sally", "Tom"],
 
     printFriends() {
-      var _this = this;
-
-      this._friends.forEach(function (f) {
-        return console.log(_this._name + " knows " + f);
-      });
+      this._friends.forEach(f => console.log(this._name + " knows " + f));
     }
 
   };
@@ -204,9 +178,9 @@ function f() {}
 
 {
   {
-    var _name = function _name(n) {
+    function _name(n) {
       return n;
-    };
+    }
   }
   name("Steve");
 } //block - scoping
@@ -219,20 +193,16 @@ function f() {}
 } //classes
 
 {
-  var Test = /*#__PURE__*/function () {
-    function Test(name) {
-      (0, _classCallCheck2.default)(this, Test);
+  class Test {
+    constructor(name) {
       this.name = name;
     }
 
-    (0, _createClass2.default)(Test, [{
-      key: "logger",
-      value: function logger() {
-        console.log("Hello", this.name);
-      }
-    }]);
-    return Test;
-  }();
+    logger() {
+      console.log("Hello", this.name);
+    }
+
+  }
 } //computed-properties
 
 {
@@ -285,9 +255,7 @@ function f() {}
 } //function-name
 
 {
-  var number = function number(x) {
-    return x;
-  };
+  var number = x => x;
 } //instanceof
 
 {
@@ -303,9 +271,9 @@ function f() {}
 } //new-target
 
 {
-  var Foo = function _target() {
-    console.log(this instanceof _target ? this.constructor : void 0);
-  };
+  function Foo() {
+    console.log(new.target);
+  }
 
   Foo(); // => undefined
 
@@ -313,36 +281,27 @@ function f() {}
 } //object-super
 
 {
-  var _obj2;
-
   var _obj = {
     say() {
       return "Hello";
     }
 
   };
-  var obj2 = _obj2 = {
+  var obj2 = {
     say() {
-      return (0, _get2.default)((0, _getPrototypeOf2.default)(_obj2), "say", this).call(this) + "World!";
+      return super.say() + "World!";
     }
 
   };
 } //parameters
 
 {
-  var test = function test() {
-    var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "hello";
-
-    var _ref = arguments.length > 1 ? arguments[1] : undefined,
-        a = _ref.a,
-        b = _ref.b;
-
-    for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-      args[_key - 2] = arguments[_key];
-    }
-
+  function test(x = "hello", {
+    a,
+    b
+  }, ...args) {
     console.log(x, a, b, args);
-  };
+  }
 } //shorthand-properties
 
 {
@@ -355,12 +314,12 @@ function f() {}
 
 {
   var za = ["a", "b", "c"];
-  var zb = [].concat(za, ["foo"]);
-  var zc = foo.apply(void 0, za);
+  var zb = [...za, "foo"];
+  var zc = foo(...za);
 } //sticky-regex
 
 {
-  var _a5 = new RegExp("o+", "y");
+  var _a5 = /o+/y;
 } //template-literals
 
 {
@@ -385,8 +344,12 @@ function f() {}
 //async-to-generator
 
 {
-  var _foo = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+  function _foo() {
+    return _foo2.apply(this, arguments);
+  }
+
+  function _foo2() {
+    _foo2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -401,30 +364,17 @@ function f() {}
         }
       }, _callee);
     }));
-
-    return function _foo() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
+    return _foo2.apply(this, arguments);
+  }
 } //ES2018
 //async-generator-functions
 
 {
-  var agf = function agf() {
+  function agf() {
     return _agf.apply(this, arguments);
-  };
+  }
 
-  var _agf = function (_agf2) {
-    function _agf() {
-      return _agf2.apply(this, arguments);
-    }
-
-    _agf.toString = function () {
-      return _agf2.toString();
-    };
-
-    return _agf;
-  }(function () {
+  function _agf() {
     _agf = (0, _wrapAsyncGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
@@ -445,7 +395,7 @@ function f() {}
       }, _callee2);
     }));
     return _agf.apply(this, arguments);
-  });
+  }
 } //dotall-regex
 
 {
@@ -484,15 +434,15 @@ function f() {}
 //class-properties
 
 {
-  var Bork = function Bork() {
-    var _this2 = this;
+  class Bork {
+    constructor() {
+      (0, _defineProperty2.default)(this, "instanceProperty", "bork");
+      (0, _defineProperty2.default)(this, "boundFunction", () => {
+        return this.instanceProperty;
+      });
+    }
 
-    (0, _classCallCheck2.default)(this, Bork);
-    (0, _defineProperty2.default)(this, "instanceProperty", "bork");
-    (0, _defineProperty2.default)(this, "boundFunction", function () {
-      return _this2.instanceProperty;
-    });
-  };
+  }
 
   (0, _defineProperty2.default)(Bork, "staticProperty", "babelIsCool");
   (0, _defineProperty2.default)(Bork, "staticFunction", function () {
@@ -510,22 +460,23 @@ function f() {}
 } //decorators
 
 {
-  var annotation = function annotation(target) {
-    target.annotated = true;
-  };
-
   var MyClass = _decorate([annotation], function (_initialize) {
-    var MyClass = function MyClass() {
-      (0, _classCallCheck2.default)(this, MyClass);
+    class MyClass {
+      constructor() {
+        _initialize(this);
+      }
 
-      _initialize(this);
-    };
+    }
 
     return {
       F: MyClass,
       d: []
     };
   });
+
+  function annotation(target) {
+    target.annotated = true;
+  }
 } //do-expressions
 
 {
@@ -551,8 +502,12 @@ function f() {}
 } //function-sent
 
 {
-  var generator = function () {
-    var _ref3 = (0, _skipFirstGeneratorNext2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+  function generator() {
+    return _generator.apply(this, arguments);
+  }
+
+  function _generator() {
+    _generator = (0, _skipFirstGeneratorNext2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var _functionSent;
 
       return _regenerator.default.wrap(function _callee3$(_context4) {
@@ -581,11 +536,8 @@ function f() {}
         }
       }, _callee3);
     }));
-
-    return function generator() {
-      return _ref3.apply(this, arguments);
-    };
-  }();
+    return _generator.apply(this, arguments);
+  }
 
   var iterator = generator();
   iterator.next(1); // Logs "Sent 1"
@@ -615,21 +567,21 @@ function f() {}
 } //optional-chaining
 
 {
-  var _obj3$foo, _obj3$foo$bar, _obj3$qux, _obj3$foo$bar2;
+  var _obj2$foo, _obj2$foo$bar, _obj2$qux, _obj2$foo$bar2;
 
-  var _obj3 = {
+  var _obj2 = {
     foo: {
       bar: {
         baz: 42
       }
     }
   };
-  var baz = _obj3 === null || _obj3 === void 0 ? void 0 : (_obj3$foo = _obj3.foo) === null || _obj3$foo === void 0 ? void 0 : (_obj3$foo$bar = _obj3$foo.bar) === null || _obj3$foo$bar === void 0 ? void 0 : _obj3$foo$bar.baz; // 42
+  var baz = _obj2 === null || _obj2 === void 0 ? void 0 : (_obj2$foo = _obj2.foo) === null || _obj2$foo === void 0 ? void 0 : (_obj2$foo$bar = _obj2$foo.bar) === null || _obj2$foo$bar === void 0 ? void 0 : _obj2$foo$bar.baz; // 42
 
-  var safe = _obj3 === null || _obj3 === void 0 ? void 0 : (_obj3$qux = _obj3.qux) === null || _obj3$qux === void 0 ? void 0 : _obj3$qux.baz; // undefined
+  var safe = _obj2 === null || _obj2 === void 0 ? void 0 : (_obj2$qux = _obj2.qux) === null || _obj2$qux === void 0 ? void 0 : _obj2$qux.baz; // undefined
   // Optional chaining and normal chaining can be intermixed
 
-  _obj3 === null || _obj3 === void 0 ? void 0 : (_obj3$foo$bar2 = _obj3.foo.bar) === null || _obj3$foo$bar2 === void 0 ? void 0 : _obj3$foo$bar2.baz; // Only access `foo` if `obj` exists, and `baz` if
+  _obj2 === null || _obj2 === void 0 ? void 0 : (_obj2$foo$bar2 = _obj2.foo.bar) === null || _obj2$foo$bar2 === void 0 ? void 0 : _obj2$foo$bar2.baz; // Only access `foo` if `obj` exists, and `baz` if
   // `bar` exists
 } //pipeline-operator
 // {
@@ -663,7 +615,7 @@ function f() {}
 //react-jsx
 
 {
-  var Hr = function Hr() {
+  var Hr = () => {
     return /*#__PURE__*/React.createElement("hr", {
       className: "hr"
     });
@@ -704,7 +656,9 @@ function f() {}
 } //regenerator
 
 {
-  var _a6 = /*#__PURE__*/_regenerator.default.mark(function _a6() {
+  var _marked = /*#__PURE__*/_regenerator.default.mark(_a6);
+
+  function _a6() {
     return _regenerator.default.wrap(function _a6$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
@@ -717,47 +671,11 @@ function f() {}
             return _context5.stop();
         }
       }
-    }, _a6);
-  });
+    }, _marked);
+  }
 } //private-methods
 
 {
-  var Counter = /*#__PURE__*/function (_HTMLElement) {
-    (0, _inherits2.default)(Counter, _HTMLElement);
-
-    var _super = _createSuper(Counter);
-
-    function Counter() {
-      var _this3;
-
-      (0, _classCallCheck2.default)(this, Counter);
-
-      for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-        args[_key2] = arguments[_key2];
-      }
-
-      _this3 = _super.call.apply(_super, [this].concat(args));
-
-      _clicked.add((0, _assertThisInitialized2.default)(_this3));
-
-      _render.add((0, _assertThisInitialized2.default)(_this3));
-
-      _x4.set((0, _assertThisInitialized2.default)(_this3), {
-        get: _get_x,
-        set: _set_x
-      });
-
-      _xValue.set((0, _assertThisInitialized2.default)(_this3), {
-        writable: true,
-        value: 0
-      });
-
-      return _this3;
-    }
-
-    return Counter;
-  }( /*#__PURE__*/(0, _wrapNativeSuper2.default)(HTMLElement));
-
   var _xValue = new WeakMap();
 
   var _x4 = new WeakMap();
@@ -765,6 +683,27 @@ function f() {}
   var _render = new WeakSet();
 
   var _clicked = new WeakSet();
+
+  class Counter extends HTMLElement {
+    constructor(...args) {
+      super(...args);
+
+      _clicked.add(this);
+
+      _render.add(this);
+
+      _x4.set(this, {
+        get: _get_x,
+        set: _set_x
+      });
+
+      _xValue.set(this, {
+        writable: true,
+        value: 0
+      });
+    }
+
+  }
 
   var _get_x = function _get_x() {
     return (0, _classPrivateFieldGet2.default)(this, _xValue);
@@ -802,9 +741,7 @@ function f() {}
 //proposal-top-level-await
 
 {
-  var dynamic = await Promise.resolve("".concat(computedModuleSpecifier)).then(function (s) {
-    return (0, _interopRequireWildcard2.default)(require(s));
-  });
+  var dynamic = await Promise.resolve("".concat(computedModuleSpecifier)).then(s => (0, _interopRequireWildcard2.default)(require(s)));
   var data = await fetch(url);
   console.log(dynamic, data);
 } //flow
