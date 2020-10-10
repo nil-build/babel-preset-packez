@@ -24,12 +24,6 @@ Setting this to `false` will not transform modules.
 
 Also note that `cjs` is just an alias for `commonjs`.
 
-### `strictMode`
-
-`boolean`, defaults to `true`
-
-详细： [babel-preset-env](https://babeljs.io/docs/en/babel-preset-env)
-
 ### `runtimeOptions`
 
 `object`
@@ -51,3 +45,7 @@ absoluteRuntime: false,
 ### decoratorsBeforeExport
 
 `boolean`, defaults to `true`
+
+---
+
+注：如果需要关闭`strictMode`，可参考： https://babeljs.io/docs/en/babel-plugin-transform-strict-mode

@@ -1,25 +1,25 @@
 export default function (api, opts) {
     const {
-        modules,
-        strictMode,
+        // modules,
+        // strictMode,
         runtimeOptions,
         // useFlow = true,
         decoratorsBeforeExport = true,
     } = opts;
 
-    const modulesMap = {
-        commonjs: require.resolve("@babel/plugin-transform-modules-commonjs"),
-        cjs: require.resolve("@babel/plugin-transform-modules-commonjs"),
-        umd: require.resolve("@babel/plugin-transform-modules-umd"),
-        amd: require.resolve("@babel/plugin-transform-modules-amd"),
-        systemjs: require.resolve("@babel/plugin-transform-modules-systemjs"),
-    };
-    const modulePlugin = strictMode && modulesMap[modules] && [
-        modulesMap[modules],
-        {
-            strictMode,
-        },
-    ];
+    // const modulesMap = {
+    //     commonjs: require.resolve("@babel/plugin-transform-modules-commonjs"),
+    //     cjs: require.resolve("@babel/plugin-transform-modules-commonjs"),
+    //     umd: require.resolve("@babel/plugin-transform-modules-umd"),
+    //     amd: require.resolve("@babel/plugin-transform-modules-amd"),
+    //     systemjs: require.resolve("@babel/plugin-transform-modules-systemjs"),
+    // };
+    // const modulePlugin = strictMode && modulesMap[modules] && [
+    //     modulesMap[modules],
+    //     {
+    //         strictMode,
+    //     },
+    // ];
     // class-properties 开启 `loose` 后 private-methods 也要同时开启
     return [
         // useFlow && [
@@ -99,6 +99,6 @@ export default function (api, opts) {
             runtimeOptions,
         ],
         require.resolve("babel-plugin-dev-expression"), //Replaces __DEV__ with process.env.NODE_ENV !== 'production'
-        modulePlugin,
+        // modulePlugin,
     ].filter(Boolean);
 }

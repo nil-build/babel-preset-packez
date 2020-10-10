@@ -3,7 +3,8 @@ import plugins from "./plugins";
 
 module.exports = function(api, opts) {
 	const defaultOpts = {
-		modules: "commonjs",
+    modules: "commonjs",
+    // 无效
 		strictMode: true,
 		// useFlow: false,
 		decoratorsBeforeExport: true,
