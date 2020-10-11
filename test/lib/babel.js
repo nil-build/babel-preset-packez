@@ -478,28 +478,31 @@ function f() {}
     target.annotated = true;
   }
 } //do-expressions
-
-{
-  var _za = x > 10 ? "big" : "small"; // is equivalent to:
-
-
-  var zza = x > 10 ? "big" : "small";
-} //function-bind
-
-{
-  var _context3;
-
-  func.bind(obj); // is equivalent to:
-
-  (_context3 = func.bind(obj), obj.func).bind(_context3); // is equivalent to:
-
-  obj.func.bind(obj);
-  func.call(obj, val); // is equivalent to:
-
-  (_context3 = func.call(obj, val), obj.func).call(_context3, val); // is equivalent to:
-
-  obj.func.call(obj, val);
-} //function-sent
+// {
+//     let za = do {
+//         if (x > 10) {
+//             ("big");
+//         } else {
+//             ("small");
+//         }
+//     };
+//     // is equivalent to:
+//     let zza = x > 10 ? "big" : "small";
+// }
+//function-bind
+// {
+//     obj::func;
+//     // is equivalent to:
+//     func.bind(obj)::obj.func;
+//     // is equivalent to:
+//     obj.func.bind(obj);
+//     obj::func(val);
+//     // is equivalent to:
+//     func.call(obj, val)::obj.func(val);
+//     // is equivalent to:
+//     obj.func.call(obj, val);
+// }
+//function-sent
 
 {
   function generator() {
@@ -510,28 +513,28 @@ function f() {}
     _generator = (0, _skipFirstGeneratorNext2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var _functionSent;
 
-      return _regenerator.default.wrap(function _callee3$(_context4) {
+      return _regenerator.default.wrap(function _callee3$(_context3) {
         while (1) {
-          switch (_context4.prev = _context4.next) {
+          switch (_context3.prev = _context3.next) {
             case 0:
-              _context4.next = 2;
+              _context3.next = 2;
               return;
 
             case 2:
-              _functionSent = _context4.sent;
+              _functionSent = _context3.sent;
               console.log("Sent", _functionSent);
-              _context4.t0 = console;
-              _context4.next = 7;
+              _context3.t0 = console;
+              _context3.next = 7;
               return;
 
             case 7:
-              _context4.t1 = _functionSent = _context4.sent;
+              _context3.t1 = _functionSent = _context3.sent;
 
-              _context4.t0.log.call(_context4.t0, "Yield", _context4.t1);
+              _context3.t0.log.call(_context3.t0, "Yield", _context3.t1);
 
             case 9:
             case "end":
-              return _context4.stop();
+              return _context3.stop();
           }
         }
       }, _callee3);
@@ -659,16 +662,16 @@ function f() {}
   var _marked = /*#__PURE__*/_regenerator.default.mark(_a6);
 
   function _a6() {
-    return _regenerator.default.wrap(function _a6$(_context5) {
+    return _regenerator.default.wrap(function _a6$(_context4) {
       while (1) {
-        switch (_context5.prev = _context5.next) {
+        switch (_context4.prev = _context4.next) {
           case 0:
-            _context5.next = 2;
+            _context4.next = 2;
             return 1;
 
           case 2:
           case "end":
-            return _context5.stop();
+            return _context4.stop();
         }
       }
     }, _marked);
