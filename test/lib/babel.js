@@ -1,8 +1,8 @@
 "use strict";
 
-var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireWildcard3 = require("@babel/runtime/helpers/interopRequireWildcard").default;
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -38,13 +38,23 @@ exports.v = exports.sv21 = exports.vxx = void 0;
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
+var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
+
+var _createSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/createSuper"));
+
+var _wrapNativeSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/wrapNativeSuper"));
+
+var _classPrivateMethodGet2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateMethodGet"));
+
 var _classPrivateFieldSet2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldSet"));
 
 var _classPrivateFieldGet2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldGet"));
 
 var _skipFirstGeneratorNext2 = _interopRequireDefault(require("@babel/runtime/helpers/skipFirstGeneratorNext"));
 
-var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+var _decorate2 = _interopRequireDefault(require("@babel/runtime/helpers/decorate"));
 
 var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
 
@@ -52,7 +62,19 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
+var _get2 = _interopRequireDefault(require("@babel/runtime/helpers/get"));
+
+var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
+
+var _createForOfIteratorHelper2 = _interopRequireDefault(require("@babel/runtime/helpers/createForOfIteratorHelper"));
+
 var _toArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toArray"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
@@ -65,6 +87,7 @@ var ns = _interopRequireWildcard3(require("mod"));
 Object.keys(ns).forEach(function (key) {
   if (key === "default" || key === "__esModule") return;
   if (Object.prototype.hasOwnProperty.call(_exportNames, key)) return;
+  if (key in exports && exports[key] === ns[key]) return;
   Object.defineProperty(exports, key, {
     enumerable: true,
     get: function get() {
@@ -72,35 +95,7 @@ Object.keys(ns).forEach(function (key) {
     }
   });
 });
-
-function _classPrivateMethodGet(receiver, privateSet, fn) { if (!privateSet.has(receiver)) { throw new TypeError("attempted to get private field on non-instance"); } return fn; }
-
-function _decorate(decorators, factory, superClass, mixins) { var api = _getDecoratorsApi(); if (mixins) { for (var i = 0; i < mixins.length; i++) { api = mixins[i](api); } } var r = factory(function initialize(O) { api.initializeInstanceElements(O, decorated.elements); }, superClass); var decorated = api.decorateClass(_coalesceClassElements(r.d.map(_createElementDescriptor)), decorators); api.initializeClassElements(r.F, decorated.elements); return api.runClassFinishers(r.F, decorated.finishers); }
-
-function _getDecoratorsApi() { _getDecoratorsApi = function _getDecoratorsApi() { return api; }; var api = { elementsDefinitionOrder: [["method"], ["field"]], initializeInstanceElements: function initializeInstanceElements(O, elements) { ["method", "field"].forEach(function (kind) { elements.forEach(function (element) { if (element.kind === kind && element.placement === "own") { this.defineClassElement(O, element); } }, this); }, this); }, initializeClassElements: function initializeClassElements(F, elements) { var proto = F.prototype; ["method", "field"].forEach(function (kind) { elements.forEach(function (element) { var placement = element.placement; if (element.kind === kind && (placement === "static" || placement === "prototype")) { var receiver = placement === "static" ? F : proto; this.defineClassElement(receiver, element); } }, this); }, this); }, defineClassElement: function defineClassElement(receiver, element) { var descriptor = element.descriptor; if (element.kind === "field") { var initializer = element.initializer; descriptor = { enumerable: descriptor.enumerable, writable: descriptor.writable, configurable: descriptor.configurable, value: initializer === void 0 ? void 0 : initializer.call(receiver) }; } Object.defineProperty(receiver, element.key, descriptor); }, decorateClass: function decorateClass(elements, decorators) { var newElements = []; var finishers = []; var placements = { static: [], prototype: [], own: [] }; elements.forEach(function (element) { this.addElementPlacement(element, placements); }, this); elements.forEach(function (element) { if (!_hasDecorators(element)) return newElements.push(element); var elementFinishersExtras = this.decorateElement(element, placements); newElements.push(elementFinishersExtras.element); newElements.push.apply(newElements, elementFinishersExtras.extras); finishers.push.apply(finishers, elementFinishersExtras.finishers); }, this); if (!decorators) { return { elements: newElements, finishers: finishers }; } var result = this.decorateConstructor(newElements, decorators); finishers.push.apply(finishers, result.finishers); result.finishers = finishers; return result; }, addElementPlacement: function addElementPlacement(element, placements, silent) { var keys = placements[element.placement]; if (!silent && keys.indexOf(element.key) !== -1) { throw new TypeError("Duplicated element (" + element.key + ")"); } keys.push(element.key); }, decorateElement: function decorateElement(element, placements) { var extras = []; var finishers = []; for (var decorators = element.decorators, i = decorators.length - 1; i >= 0; i--) { var keys = placements[element.placement]; keys.splice(keys.indexOf(element.key), 1); var elementObject = this.fromElementDescriptor(element); var elementFinisherExtras = this.toElementFinisherExtras((0, decorators[i])(elementObject) || elementObject); element = elementFinisherExtras.element; this.addElementPlacement(element, placements); if (elementFinisherExtras.finisher) { finishers.push(elementFinisherExtras.finisher); } var newExtras = elementFinisherExtras.extras; if (newExtras) { for (var j = 0; j < newExtras.length; j++) { this.addElementPlacement(newExtras[j], placements); } extras.push.apply(extras, newExtras); } } return { element: element, finishers: finishers, extras: extras }; }, decorateConstructor: function decorateConstructor(elements, decorators) { var finishers = []; for (var i = decorators.length - 1; i >= 0; i--) { var obj = this.fromClassDescriptor(elements); var elementsAndFinisher = this.toClassDescriptor((0, decorators[i])(obj) || obj); if (elementsAndFinisher.finisher !== undefined) { finishers.push(elementsAndFinisher.finisher); } if (elementsAndFinisher.elements !== undefined) { elements = elementsAndFinisher.elements; for (var j = 0; j < elements.length - 1; j++) { for (var k = j + 1; k < elements.length; k++) { if (elements[j].key === elements[k].key && elements[j].placement === elements[k].placement) { throw new TypeError("Duplicated element (" + elements[j].key + ")"); } } } } } return { elements: elements, finishers: finishers }; }, fromElementDescriptor: function fromElementDescriptor(element) { var obj = { kind: element.kind, key: element.key, placement: element.placement, descriptor: element.descriptor }; var desc = { value: "Descriptor", configurable: true }; Object.defineProperty(obj, Symbol.toStringTag, desc); if (element.kind === "field") obj.initializer = element.initializer; return obj; }, toElementDescriptors: function toElementDescriptors(elementObjects) { if (elementObjects === undefined) return; return (0, _toArray2.default)(elementObjects).map(function (elementObject) { var element = this.toElementDescriptor(elementObject); this.disallowProperty(elementObject, "finisher", "An element descriptor"); this.disallowProperty(elementObject, "extras", "An element descriptor"); return element; }, this); }, toElementDescriptor: function toElementDescriptor(elementObject) { var kind = String(elementObject.kind); if (kind !== "method" && kind !== "field") { throw new TypeError('An element descriptor\'s .kind property must be either "method" or' + ' "field", but a decorator created an element descriptor with' + ' .kind "' + kind + '"'); } var key = _toPropertyKey(elementObject.key); var placement = String(elementObject.placement); if (placement !== "static" && placement !== "prototype" && placement !== "own") { throw new TypeError('An element descriptor\'s .placement property must be one of "static",' + ' "prototype" or "own", but a decorator created an element descriptor' + ' with .placement "' + placement + '"'); } var descriptor = elementObject.descriptor; this.disallowProperty(elementObject, "elements", "An element descriptor"); var element = { kind: kind, key: key, placement: placement, descriptor: Object.assign({}, descriptor) }; if (kind !== "field") { this.disallowProperty(elementObject, "initializer", "A method descriptor"); } else { this.disallowProperty(descriptor, "get", "The property descriptor of a field descriptor"); this.disallowProperty(descriptor, "set", "The property descriptor of a field descriptor"); this.disallowProperty(descriptor, "value", "The property descriptor of a field descriptor"); element.initializer = elementObject.initializer; } return element; }, toElementFinisherExtras: function toElementFinisherExtras(elementObject) { var element = this.toElementDescriptor(elementObject); var finisher = _optionalCallableProperty(elementObject, "finisher"); var extras = this.toElementDescriptors(elementObject.extras); return { element: element, finisher: finisher, extras: extras }; }, fromClassDescriptor: function fromClassDescriptor(elements) { var obj = { kind: "class", elements: elements.map(this.fromElementDescriptor, this) }; var desc = { value: "Descriptor", configurable: true }; Object.defineProperty(obj, Symbol.toStringTag, desc); return obj; }, toClassDescriptor: function toClassDescriptor(obj) { var kind = String(obj.kind); if (kind !== "class") { throw new TypeError('A class descriptor\'s .kind property must be "class", but a decorator' + ' created a class descriptor with .kind "' + kind + '"'); } this.disallowProperty(obj, "key", "A class descriptor"); this.disallowProperty(obj, "placement", "A class descriptor"); this.disallowProperty(obj, "descriptor", "A class descriptor"); this.disallowProperty(obj, "initializer", "A class descriptor"); this.disallowProperty(obj, "extras", "A class descriptor"); var finisher = _optionalCallableProperty(obj, "finisher"); var elements = this.toElementDescriptors(obj.elements); return { elements: elements, finisher: finisher }; }, runClassFinishers: function runClassFinishers(constructor, finishers) { for (var i = 0; i < finishers.length; i++) { var newConstructor = (0, finishers[i])(constructor); if (newConstructor !== undefined) { if (typeof newConstructor !== "function") { throw new TypeError("Finishers must return a constructor."); } constructor = newConstructor; } } return constructor; }, disallowProperty: function disallowProperty(obj, name, objectType) { if (obj[name] !== undefined) { throw new TypeError(objectType + " can't have a ." + name + " property."); } } }; return api; }
-
-function _createElementDescriptor(def) { var key = _toPropertyKey(def.key); var descriptor; if (def.kind === "method") { descriptor = { value: def.value, writable: true, configurable: true, enumerable: false }; } else if (def.kind === "get") { descriptor = { get: def.value, configurable: true, enumerable: false }; } else if (def.kind === "set") { descriptor = { set: def.value, configurable: true, enumerable: false }; } else if (def.kind === "field") { descriptor = { configurable: true, writable: true, enumerable: true }; } var element = { kind: def.kind === "field" ? "field" : "method", key: key, placement: def.static ? "static" : def.kind === "field" ? "own" : "prototype", descriptor: descriptor }; if (def.decorators) element.decorators = def.decorators; if (def.kind === "field") element.initializer = def.value; return element; }
-
-function _coalesceGetterSetter(element, other) { if (element.descriptor.get !== undefined) { other.descriptor.get = element.descriptor.get; } else { other.descriptor.set = element.descriptor.set; } }
-
-function _coalesceClassElements(elements) { var newElements = []; var isSameElement = function isSameElement(other) { return other.kind === "method" && other.key === element.key && other.placement === element.placement; }; for (var i = 0; i < elements.length; i++) { var element = elements[i]; var other; if (element.kind === "method" && (other = newElements.find(isSameElement))) { if (_isDataDescriptor(element.descriptor) || _isDataDescriptor(other.descriptor)) { if (_hasDecorators(element) || _hasDecorators(other)) { throw new ReferenceError("Duplicated methods (" + element.key + ") can't be decorated."); } other.descriptor = element.descriptor; } else { if (_hasDecorators(element)) { if (_hasDecorators(other)) { throw new ReferenceError("Decorators can't be placed on different accessors with for " + "the same property (" + element.key + ")."); } other.decorators = element.decorators; } _coalesceGetterSetter(element, other); } } else { newElements.push(element); } } return newElements; }
-
-function _hasDecorators(element) { return element.decorators && element.decorators.length; }
-
-function _isDataDescriptor(desc) { return desc !== undefined && !(desc.value === undefined && desc.writable === undefined); }
-
-function _optionalCallableProperty(obj, name) { var value = obj[name]; if (value !== undefined && typeof value !== "function") { throw new TypeError("Expected '" + name + "' to be a function"); } return value; }
-
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return typeof key === "symbol" ? key : String(key); }
-
-function _toPrimitive(input, hint) { if (typeof input !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (typeof res !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-
-function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+var _excluded = ["x", "y"];
 var sv21;
 exports.v = exports.sv21 = sv21;
 var vxx;
@@ -127,15 +122,15 @@ function f() {}
 } //property-literals
 
 {
-  var foo = {
+  var _foo;
+
+  var foo = (_foo = {
     // changed
     bar: function bar() {},
-    "1": function _() {},
+    1: function _() {},
     // not changed
-    default: 1,
-    [a]: 2,
-    foo: 1
-  };
+    default: 1
+  }, (0, _defineProperty2.default)(_foo, a, 2), (0, _defineProperty2.default)(_foo, "foo", 1), _foo);
 } //reserved-words
 
 {
@@ -157,30 +152,36 @@ function f() {}
 } //arrow-functions
 
 {
-  var a1 = () => {};
+  var a1 = function a1() {};
 
-  var a2 = b => b;
+  var a2 = function a2(b) {
+    return b;
+  };
 
-  var double = [1, 2, 3].map(num => num * 2);
+  var double = [1, 2, 3].map(function (num) {
+    return num * 2;
+  });
   console.log(double); // [2,4,6]
 
   var bob = {
     _name: "Bob",
     _friends: ["Sally", "Tom"],
+    printFriends: function printFriends() {
+      var _this = this;
 
-    printFriends() {
-      this._friends.forEach(f => console.log(this._name + " knows " + f));
+      this._friends.forEach(function (f) {
+        return console.log(_this._name + " knows " + f);
+      });
     }
-
   };
   console.log(bob.printFriends());
 } //block-scoped-functions
 
 {
   {
-    function _name(n) {
+    var _name = function _name(n) {
       return n;
-    }
+    };
   }
   name("Steve");
 } //block - scoping
@@ -193,25 +194,26 @@ function f() {}
 } //classes
 
 {
-  class Test {
-    constructor(name) {
+  var Test = /*#__PURE__*/function () {
+    function Test(name) {
+      (0, _classCallCheck2.default)(this, Test);
       this.name = name;
     }
 
-    logger() {
-      console.log("Hello", this.name);
-    }
-
-  }
+    (0, _createClass2.default)(Test, [{
+      key: "logger",
+      value: function logger() {
+        console.log("Hello", this.name);
+      }
+    }]);
+    return Test;
+  }();
 } //computed-properties
 
 {
-  var obj = {
-    ["x" + foo]: "heh",
-    ["y" + bar]: "noo",
-    foo: "foo",
-    bar: "bar"
-  };
+  var _obj;
+
+  var obj = (_obj = {}, (0, _defineProperty2.default)(_obj, "x" + foo, "heh"), (0, _defineProperty2.default)(_obj, "y" + bar, "noo"), (0, _defineProperty2.default)(_obj, "foo", "foo"), (0, _defineProperty2.default)(_obj, "bar", "bar"), _obj);
 } //destructuring
 
 {
@@ -226,21 +228,19 @@ function f() {}
 } //duplicate-keys
 
 {
-  var x = {
-    a: 5,
-    a: 6
-  };
-  var y = {
+  var x = (0, _defineProperty2.default)({
+    a: 5
+  }, "a", 6);
+  var y = (0, _defineProperty2.default)({
     get a() {},
 
-    set a(x) {},
+    set a(x) {}
 
-    a: 3
-  };
+  }, "a", 3);
 } //for-of
 
 {
-  var _iterator = _createForOfIteratorHelper(foo),
+  var _iterator = (0, _createForOfIteratorHelper2.default)(foo),
       _step;
 
   try {
@@ -255,7 +255,9 @@ function f() {}
 } //function-name
 
 {
-  var number = x => x;
+  var number = function number(x) {
+    return x;
+  };
 } //instanceof
 
 {
@@ -263,17 +265,17 @@ function f() {}
 } //literals
 
 {
-  var b = 0b11; // binary integer literal
+  var b = 3; // binary integer literal
 
-  var o = 0o7; // octal integer literal
+  var o = 7; // octal integer literal
 
-  var u = "Hello\u{000A}\u{0009}!"; // unicode string literals, newline and tab
+  var u = "Hello\n\t!"; // unicode string literals, newline and tab
 } //new-target
 
 {
-  function Foo() {
-    console.log(new.target);
-  }
+  var Foo = function _target() {
+    console.log(this instanceof _target ? this.constructor : void 0);
+  };
 
   Foo(); // => undefined
 
@@ -281,45 +283,52 @@ function f() {}
 } //object-super
 
 {
-  var _obj = {
-    say() {
+  var _obj3;
+
+  var _obj2 = {
+    say: function say() {
       return "Hello";
     }
-
   };
-  var obj2 = {
-    say() {
-      return super.say() + "World!";
+  var obj2 = _obj3 = {
+    say: function say() {
+      return (0, _get2.default)((0, _getPrototypeOf2.default)(_obj3), "say", this).call(this) + "World!";
     }
-
   };
 } //parameters
 
 {
-  function test(x = "hello", {
-    a,
-    b
-  }, ...args) {
+  var test = function test() {
+    var x = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "hello";
+
+    var _ref = arguments.length > 1 ? arguments[1] : undefined,
+        a = _ref.a,
+        b = _ref.b;
+
+    for (var _len = arguments.length, args = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+      args[_key - 2] = arguments[_key];
+    }
+
     console.log(x, a, b, args);
-  }
+  };
 } //shorthand-properties
 
 {
   var o = {
-    a,
-    b,
-    c
+    a: a,
+    b: b,
+    c: c
   };
 } //spread
 
 {
   var za = ["a", "b", "c"];
-  var zb = [...za, "foo"];
-  var zc = foo(...za);
+  var zb = [].concat(za, ["foo"]);
+  var zc = foo.apply(void 0, za);
 } //sticky-regex
 
 {
-  var _a5 = /o+/y;
+  var _a5 = new RegExp("o+", "y");
 } //template-literals
 
 {
@@ -337,19 +346,15 @@ function f() {}
 //exponentiation-operator
 
 {
-  var _x2 = Math.pow(10, 2);
+  var _x3 = Math.pow(10, 2);
 
-  _x2 = Math.pow(_x2, 3);
+  _x3 = Math.pow(_x3, 3);
 } //ES2017
 //async-to-generator
 
 {
-  function _foo() {
-    return _foo2.apply(this, arguments);
-  }
-
-  function _foo2() {
-    _foo2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
+  var _foo2 = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
       return _regenerator.default.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -364,18 +369,21 @@ function f() {}
         }
       }, _callee);
     }));
-    return _foo2.apply(this, arguments);
-  }
+
+    return function _foo2() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
 } //ES2018
 //async-generator-functions
 
 {
-  function agf() {
-    return _agf.apply(this, arguments);
-  }
+  var agf = function agf() {
+    return _agf3.apply(this, arguments);
+  };
 
-  function _agf() {
-    _agf = (0, _wrapAsyncGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
+  var _agf3 = function _agf2() {
+    _agf3 = (0, _wrapAsyncGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
       return _regenerator.default.wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
@@ -394,8 +402,8 @@ function f() {}
         }
       }, _callee2);
     }));
-    return _agf.apply(this, arguments);
-  }
+    return _agf3.apply(this, arguments);
+  };
 } //dotall-regex
 
 {
@@ -413,13 +421,13 @@ function f() {}
     a: 3,
     b: 4
   }, ui),
-      _x3 = _x$y$a$b$ui.x,
-      _y2 = _x$y$a$b$ui.y,
-      z = (0, _objectWithoutProperties2.default)(_x$y$a$b$ui, ["x", "y"]);
+      _x4 = _x$y$a$b$ui.x,
+      _y3 = _x$y$a$b$ui.y,
+      z = (0, _objectWithoutProperties2.default)(_x$y$a$b$ui, _excluded);
 
-  console.log(_x3); // 1
+  console.log(_x4); // 1
 
-  console.log(_y2); // 2
+  console.log(_y3); // 2
 
   console.log(z); // { a: 3, b: 4 }
 } //optional-catch-binding
@@ -434,15 +442,25 @@ function f() {}
 //class-properties
 
 {
-  class Bork {
-    constructor() {
+  var Bork = /*#__PURE__*/function () {
+    function Bork() {
+      var _this2 = this;
+
+      (0, _classCallCheck2.default)(this, Bork);
       (0, _defineProperty2.default)(this, "instanceProperty", "bork");
-      (0, _defineProperty2.default)(this, "boundFunction", () => {
-        return this.instanceProperty;
+      (0, _defineProperty2.default)(this, "boundFunction", function () {
+        return _this2.instanceProperty;
       });
     }
 
-  }
+    (0, _createClass2.default)(Bork, [{
+      key: "input",
+      value: function input() {
+        1;
+      }
+    }]);
+    return Bork;
+  }();
 
   (0, _defineProperty2.default)(Bork, "staticProperty", "babelIsCool");
   (0, _defineProperty2.default)(Bork, "staticFunction", function () {
@@ -460,23 +478,22 @@ function f() {}
 } //decorators
 
 {
-  var MyClass = _decorate([annotation], function (_initialize) {
-    class MyClass {
-      constructor() {
-        _initialize(this);
-      }
+  var annotation = function annotation(target) {
+    target.annotated = true;
+  };
 
-    }
+  var MyClass = (0, _decorate2.default)([annotation], function (_initialize) {
+    var MyClass = function MyClass() {
+      (0, _classCallCheck2.default)(this, MyClass);
+
+      _initialize(this);
+    };
 
     return {
       F: MyClass,
       d: []
     };
   });
-
-  function annotation(target) {
-    target.annotated = true;
-  }
 } //do-expressions
 // {
 //     let za = do {
@@ -505,12 +522,8 @@ function f() {}
 //function-sent
 
 {
-  function generator() {
-    return _generator.apply(this, arguments);
-  }
-
-  function _generator() {
-    _generator = (0, _skipFirstGeneratorNext2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+  var generator = function () {
+    var _ref3 = (0, _skipFirstGeneratorNext2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
       var _functionSent;
 
       return _regenerator.default.wrap(function _callee3$(_context3) {
@@ -539,8 +552,11 @@ function f() {}
         }
       }, _callee3);
     }));
-    return _generator.apply(this, arguments);
-  }
+
+    return function generator() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
 
   var iterator = generator();
   iterator.next(1); // Logs "Sent 1"
@@ -570,21 +586,21 @@ function f() {}
 } //optional-chaining
 
 {
-  var _obj2$foo, _obj2$foo$bar, _obj2$qux, _obj2$foo$bar2;
+  var _obj4$foo, _obj4$foo$bar, _obj4$qux, _obj4$foo$bar2;
 
-  var _obj2 = {
+  var _obj4 = {
     foo: {
       bar: {
         baz: 42
       }
     }
   };
-  var baz = _obj2 === null || _obj2 === void 0 ? void 0 : (_obj2$foo = _obj2.foo) === null || _obj2$foo === void 0 ? void 0 : (_obj2$foo$bar = _obj2$foo.bar) === null || _obj2$foo$bar === void 0 ? void 0 : _obj2$foo$bar.baz; // 42
+  var baz = _obj4 === null || _obj4 === void 0 ? void 0 : (_obj4$foo = _obj4.foo) === null || _obj4$foo === void 0 ? void 0 : (_obj4$foo$bar = _obj4$foo.bar) === null || _obj4$foo$bar === void 0 ? void 0 : _obj4$foo$bar.baz; // 42
 
-  var safe = _obj2 === null || _obj2 === void 0 ? void 0 : (_obj2$qux = _obj2.qux) === null || _obj2$qux === void 0 ? void 0 : _obj2$qux.baz; // undefined
+  var safe = _obj4 === null || _obj4 === void 0 ? void 0 : (_obj4$qux = _obj4.qux) === null || _obj4$qux === void 0 ? void 0 : _obj4$qux.baz; // undefined
   // Optional chaining and normal chaining can be intermixed
 
-  _obj2 === null || _obj2 === void 0 ? void 0 : (_obj2$foo$bar2 = _obj2.foo.bar) === null || _obj2$foo$bar2 === void 0 ? void 0 : _obj2$foo$bar2.baz; // Only access `foo` if `obj` exists, and `baz` if
+  _obj4 === null || _obj4 === void 0 ? void 0 : (_obj4$foo$bar2 = _obj4.foo.bar) === null || _obj4$foo$bar2 === void 0 ? void 0 : _obj4$foo$bar2.baz; // Only access `foo` if `obj` exists, and `baz` if
   // `bar` exists
 } //pipeline-operator
 // {
@@ -618,7 +634,7 @@ function f() {}
 //react-jsx
 
 {
-  var Hr = () => {
+  var Hr = function Hr() {
     return /*#__PURE__*/React.createElement("hr", {
       className: "hr"
     });
@@ -659,9 +675,7 @@ function f() {}
 } //regenerator
 
 {
-  var _marked = /*#__PURE__*/_regenerator.default.mark(_a6);
-
-  function _a6() {
+  var _a6 = /*#__PURE__*/_regenerator.default.mark(function _a6() {
     return _regenerator.default.wrap(function _a6$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
@@ -674,56 +688,71 @@ function f() {}
             return _context4.stop();
         }
       }
-    }, _marked);
-  }
+    }, _a6);
+  });
 } //private-methods
 
 {
-  var _xValue = new WeakMap();
+  var _xValue = /*#__PURE__*/new WeakMap();
 
-  var _x4 = new WeakMap();
+  var _x5 = /*#__PURE__*/new WeakMap();
 
-  var _render = new WeakSet();
+  var _render = /*#__PURE__*/new WeakSet();
 
-  var _clicked = new WeakSet();
+  var _clicked = /*#__PURE__*/new WeakSet();
 
-  class Counter extends HTMLElement {
-    constructor(...args) {
-      super(...args);
+  var Counter = /*#__PURE__*/function (_HTMLElement) {
+    (0, _inherits2.default)(Counter, _HTMLElement);
 
-      _clicked.add(this);
+    var _super = (0, _createSuper2.default)(Counter);
 
-      _render.add(this);
+    function Counter() {
+      var _this3;
 
-      _x4.set(this, {
+      (0, _classCallCheck2.default)(this, Counter);
+
+      for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        args[_key2] = arguments[_key2];
+      }
+
+      _this3 = _super.call.apply(_super, [this].concat(args));
+
+      _clicked.add((0, _assertThisInitialized2.default)(_this3));
+
+      _render.add((0, _assertThisInitialized2.default)(_this3));
+
+      _x5.set((0, _assertThisInitialized2.default)(_this3), {
         get: _get_x,
         set: _set_x
       });
 
-      _xValue.set(this, {
+      _xValue.set((0, _assertThisInitialized2.default)(_this3), {
         writable: true,
         value: 0
       });
+
+      return _this3;
     }
 
+    return Counter;
+  }( /*#__PURE__*/(0, _wrapNativeSuper2.default)(HTMLElement));
+
+  function _get_x() {
+    return (0, _classPrivateFieldGet2.default)(this, _xValue);
   }
 
-  var _get_x = function _get_x() {
-    return (0, _classPrivateFieldGet2.default)(this, _xValue);
-  };
-
-  var _set_x = function _set_x(value) {
+  function _set_x(value) {
     (0, _classPrivateFieldSet2.default)(this, _xValue, value);
-    window.requestAnimationFrame(_classPrivateMethodGet(this, _render, _render2).bind(this));
-  };
+    window.requestAnimationFrame((0, _classPrivateMethodGet2.default)(this, _render, _render2).bind(this));
+  }
 
-  var _render2 = function _render2() {};
+  function _render2() {}
 
-  var _clicked2 = function _clicked2() {
+  function _clicked2() {
     var _this$x;
 
-    (0, _classPrivateFieldSet2.default)(this, _x4, (_this$x = +(0, _classPrivateFieldGet2.default)(this, _x4)) + 1), _this$x;
-  };
+    (0, _classPrivateFieldSet2.default)(this, _x5, (_this$x = +(0, _classPrivateFieldGet2.default)(this, _x5)) + 1), _this$x;
+  }
 } //partial-application
 // {
 //     function add(x, y) {
@@ -744,7 +773,9 @@ function f() {}
 //proposal-top-level-await
 
 {
-  var dynamic = await Promise.resolve("".concat(computedModuleSpecifier)).then(s => (0, _interopRequireWildcard2.default)(require(s)));
+  var dynamic = await Promise.resolve("".concat(computedModuleSpecifier)).then(function (s) {
+    return (0, _interopRequireWildcard2.default)(require(s));
+  });
   var data = await fetch(url);
   console.log(dynamic, data);
 } //flow

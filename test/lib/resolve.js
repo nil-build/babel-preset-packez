@@ -1,6 +1,6 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
@@ -12,7 +12,9 @@ var _abc2 = _interopRequireDefault(require("react/abc3"));
 
 var _abc3 = _interopRequireDefault(require("react/abc4"));
 
-Promise.resolve().then(() => (0, _interopRequireWildcard2.default)(require("jquery")));
+Promise.resolve().then(function () {
+  return (0, _interopRequireWildcard2.default)(require("jquery"));
+});
 
 require("jquery");
 

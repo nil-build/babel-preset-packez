@@ -1,6 +1,6 @@
 "use strict";
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
 
