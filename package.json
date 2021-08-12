@@ -1,67 +1,67 @@
 {
-    "name": "babel-preset-packez",
-    "version": "1.3.0",
-    "description": "",
-    "main": "./lib/index.js",
-    "scripts": {
-        "start": "transform-es src -d lib -t node -w --corejs false",
-        "test": "babel ./test/src -d ./test/lib --extensions .ts,.tsx,.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/nil-build/babel-preset-packez.git"
-    },
-    "keywords": [
-        "babel",
-        "babel-preset",
-        "babel-preset-packez"
-    ],
-    "files": [
-        "lib",
-        "*.js",
-        "*.md"
-    ],
-    "author": "nobo.zhou@foxmail.com",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/nil-build/babel-preset-packez/issues"
-    },
-    "homepage": "https://github.com/nil-build/babel-preset-packez#readme",
-    "dependencies": {
-        "@babel/core": "^7.14.8",
-        "@babel/plugin-proposal-async-generator-functions": "^7.14.7",
-        "@babel/plugin-proposal-class-properties": "^7.14.5",
-        "@babel/plugin-proposal-decorators": "^7.14.5",
-        "@babel/plugin-proposal-export-default-from": "^7.14.5",
-        "@babel/plugin-proposal-export-namespace-from": "^7.14.5",
-        "@babel/plugin-proposal-function-sent": "^7.14.5",
-        "@babel/plugin-proposal-nullish-coalescing-operator": "^7.14.5",
-        "@babel/plugin-proposal-numeric-separator": "^7.14.5",
-        "@babel/plugin-proposal-object-rest-spread": "^7.14.7",
-        "@babel/plugin-proposal-optional-catch-binding": "^7.14.5",
-        "@babel/plugin-proposal-optional-chaining": "^7.14.5",
-        "@babel/plugin-proposal-private-methods": "^7.14.5",
-        "@babel/plugin-syntax-dynamic-import": "^7.8.3",
-        "@babel/plugin-syntax-top-level-await": "^7.14.5",
-        "@babel/plugin-transform-destructuring": "^7.14.7",
-        "@babel/plugin-transform-proto-to-assign": "^7.14.5",
-        "@babel/plugin-transform-runtime": "^7.14.5",
-        "@babel/preset-env": "^7.14.8",
-        "@babel/preset-react": "^7.14.5",
-        "@babel/preset-typescript": "^7.14.5",
-        "@babel/runtime": "^7.14.8",
-        "babel-plugin-dev-expression": "^0.2.2",
-        "babel-plugin-macros": "^3.1.0",
-        "lodash": "^4.17.21"
-    },
-    "devDependencies": {
-        "@babel/cli": "^7.14.8",
-        "transform-es": "^5.6.1"
-    },
-    "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not ie <= 11",
-        "not op_mini all"
-    ]
+  "name": "babel-preset-packez",
+  "version": "1.4.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "scripts": {
+    "start": "transform-es src -d lib -t node -w --corejs false",
+    "test": "babel ./test/src -d ./test/lib --extensions .ts,.tsx,.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nil-build/babel-preset-packez.git"
+  },
+  "keywords": [
+    "babel",
+    "babel-preset",
+    "babel-preset-packez"
+  ],
+  "files": [
+    "lib",
+    "*.js",
+    "*.md"
+  ],
+  "author": "nobo.zhou@foxmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nil-build/babel-preset-packez/issues"
+  },
+  "homepage": "https://github.com/nil-build/babel-preset-packez#readme",
+  "dependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-proposal-async-generator-functions": "^7.14.7",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-proposal-decorators": "^7.14.5",
+    "@babel/plugin-proposal-export-default-from": "^7.14.5",
+    "@babel/plugin-proposal-export-namespace-from": "^7.14.5",
+    "@babel/plugin-proposal-function-sent": "^7.14.5",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.14.5",
+    "@babel/plugin-proposal-numeric-separator": "^7.14.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.14.7",
+    "@babel/plugin-proposal-optional-catch-binding": "^7.14.5",
+    "@babel/plugin-proposal-optional-chaining": "^7.14.5",
+    "@babel/plugin-proposal-private-methods": "^7.14.5",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-syntax-top-level-await": "^7.14.5",
+    "@babel/plugin-transform-destructuring": "^7.14.7",
+    "@babel/plugin-transform-proto-to-assign": "^7.14.5",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@babel/runtime": "^7.14.8",
+    "babel-plugin-dev-expression": "^0.2.2",
+    "babel-plugin-macros": "^3.1.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "transform-es": "^5.6.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
