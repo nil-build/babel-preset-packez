@@ -46,6 +46,14 @@ absoluteRuntime: false,
 
 `boolean`, defaults to `true`
 
+### allowDeclareFields
+
+`boolean`, defaults to `true`
+
+> 注：启用后无法使用 `@babel/plugin-proposal-class-properties` `@babel/plugin-proposal-private-methods` `@babel/plugin-proposal-decorators`
+>
+> 等 `babel8` 解决
+
 ---
 
 注：如果需要关闭`strictMode`，可参考： https://babeljs.io/docs/en/babel-plugin-transform-strict-mode

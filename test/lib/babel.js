@@ -54,8 +54,6 @@ var _classPrivateFieldGet2 = _interopRequireDefault(require("@babel/runtime/help
 
 var _skipFirstGeneratorNext2 = _interopRequireDefault(require("@babel/runtime/helpers/skipFirstGeneratorNext"));
 
-var _decorate2 = _interopRequireDefault(require("@babel/runtime/helpers/decorate"));
-
 var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
 
 var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
@@ -482,18 +480,10 @@ function f() {}
     target.annotated = true;
   };
 
-  var MyClass = (0, _decorate2.default)([annotation], function (_initialize) {
-    var MyClass = function MyClass() {
-      (0, _classCallCheck2.default)(this, MyClass);
-
-      _initialize(this);
-    };
-
-    return {
-      F: MyClass,
-      d: []
-    };
-  });
+  // @annotation
+  var MyClass = function MyClass() {
+    (0, _classCallCheck2.default)(this, MyClass);
+  };
 } //do-expressions
 // {
 //     let za = do {

@@ -54,26 +54,27 @@ export default function (api, opts) {
     // ...
     require.resolve("@babel/plugin-syntax-dynamic-import"),
     require.resolve("@babel/plugin-proposal-async-generator-functions"),
-    [
-      require.resolve("@babel/plugin-proposal-decorators"),
-      {
-        decoratorsBeforeExport,
-        legacy: false,
-      },
-    ],
+    // 目前开启 allowDeclareFields 后，和以下三个插件有冲突，先禁用
+    // [
+    //   require.resolve("@babel/plugin-proposal-decorators"),
+    //   {
+    //     decoratorsBeforeExport,
+    //     legacy: false,
+    //   },
+    // ],
     // Enable loose mode to use assignment instead of defineProperty
-    [
-      require.resolve("@babel/plugin-proposal-class-properties"),
-      {
-        loose: true,
-      },
-    ],
-    [
-      require.resolve("@babel/plugin-proposal-private-methods"),
-      {
-        loose: true,
-      },
-    ],
+    // [
+    //   require.resolve("@babel/plugin-proposal-class-properties"),
+    //   {
+    //     loose: true,
+    //   },
+    // ],
+    // [
+    //   require.resolve("@babel/plugin-proposal-private-methods"),
+    //   {
+    //     loose: true,
+    //   },
+    // ],
     // require.resolve("@babel/plugin-proposal-do-expressions"),
     require.resolve("@babel/plugin-proposal-export-default-from"),
     require.resolve("@babel/plugin-proposal-export-namespace-from"),

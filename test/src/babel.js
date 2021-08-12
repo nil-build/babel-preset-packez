@@ -285,7 +285,7 @@ export { sv21 as v };
 }
 //decorators
 {
-  @annotation
+  // @annotation
   class MyClass {}
 
   function annotation(target) {

@@ -2,6 +2,8 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
+var _assertThisInitialized2 = _interopRequireDefault(require("@babel/runtime/helpers/assertThisInitialized"));
+
 var _get2 = _interopRequireDefault(require("@babel/runtime/helpers/get"));
 
 var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf"));
@@ -9,6 +11,8 @@ var _getPrototypeOf2 = _interopRequireDefault(require("@babel/runtime/helpers/ge
 var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits"));
 
 var _createSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/createSuper"));
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
 var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
 
@@ -44,10 +48,15 @@ var Snake = /*#__PURE__*/function (_Animal) {
 
   var _super = (0, _createSuper2.default)(Snake);
 
-  // declare foot: string;
   function Snake(name) {
+    var _this;
+
     (0, _classCallCheck2.default)(this, Snake);
-    return _super.call(this, name);
+    _this = _super.call(this, name);
+    (0, _defineProperty2.default)((0, _assertThisInitialized2.default)(_this), "up", function () {
+      console.log((0, _assertThisInitialized2.default)(_this));
+    });
+    return _this;
   }
 
   (0, _createClass2.default)(Snake, [{

@@ -8,6 +8,7 @@ module.exports = function (api, opts) {
     strictMode: true,
     // useFlow: false,
     decoratorsBeforeExport: true,
+    allowDeclareFields: true,
     // corejs: 3,
     // useBuiltIns: "usage",
     // targets: {
@@ -35,13 +36,14 @@ module.exports = function (api, opts) {
           "runtimeOptions",
           "strictMode",
           "decoratorsBeforeExport",
+          "allowDeclareFields",
         ]),
       ],
       require.resolve("@babel/preset-react"),
       [
         require.resolve("@babel/preset-typescript"),
         {
-          allowDeclareFields: true,
+          allowDeclareFields: opts.allowDeclareFields,
         },
       ],
     ].filter(Boolean),
