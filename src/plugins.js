@@ -27,6 +27,13 @@ export default function (api, opts) {
     // 	false,
     // ],
     require.resolve("babel-plugin-macros"),
+    // [
+    //   require.resolve("@babel/plugin-transform-typescript"),
+    //   {
+    //     allowDeclareFields: true,
+    //     isTSX: true,
+    //   },
+    // ],
     [
       require.resolve("@babel/plugin-transform-destructuring"),
       {
@@ -53,8 +60,9 @@ export default function (api, opts) {
     // modules: amd => Promise.resolve.then( () => require([path], callback) )
     // ...
     require.resolve("@babel/plugin-syntax-dynamic-import"),
-    require.resolve("@babel/plugin-proposal-async-generator-functions"),
-    // 目前开启 allowDeclareFields 后，和以下三个插件有冲突，先禁用
+    // builtIns
+    // require.resolve("@babel/plugin-proposal-async-generator-functions"),
+    // builtIns
     // [
     //   require.resolve("@babel/plugin-proposal-decorators"),
     //   {
@@ -63,12 +71,14 @@ export default function (api, opts) {
     //   },
     // ],
     // Enable loose mode to use assignment instead of defineProperty
+    // builtIns
     // [
     //   require.resolve("@babel/plugin-proposal-class-properties"),
     //   {
-    //     loose: true,
+    //     setPublicClassFields: true,
     //   },
     // ],
+    // builtIns
     // [
     //   require.resolve("@babel/plugin-proposal-private-methods"),
     //   {
@@ -80,10 +90,14 @@ export default function (api, opts) {
     require.resolve("@babel/plugin-proposal-export-namespace-from"),
     // require.resolve("@babel/plugin-proposal-function-bind"),
     require.resolve("@babel/plugin-proposal-function-sent"),
-    require.resolve("@babel/plugin-proposal-nullish-coalescing-operator"),
-    require.resolve("@babel/plugin-proposal-numeric-separator"),
-    require.resolve("@babel/plugin-proposal-optional-chaining"),
-    require.resolve("@babel/plugin-proposal-optional-catch-binding"),
+    // builtIns
+    // require.resolve("@babel/plugin-proposal-nullish-coalescing-operator"),
+    // builtIns
+    // require.resolve("@babel/plugin-proposal-numeric-separator"),
+    // builtIns
+    // require.resolve("@babel/plugin-proposal-optional-chaining"),
+    // builtIns
+    // require.resolve("@babel/plugin-proposal-optional-catch-binding"),
     [
       require.resolve("@babel/plugin-proposal-object-rest-spread"),
       {

@@ -42,17 +42,9 @@ absoluteRuntime: false,
 
 详细：[transform-runtime](https://babeljs.io/docs/en/next/babel-plugin-transform-runtime)
 
-### decoratorsBeforeExport
-
-`boolean`, defaults to `true`
-
 ### allowDeclareFields
 
 `boolean`, defaults to `true`
-
-> 注：启用后无法使用 `@babel/plugin-proposal-class-properties` `@babel/plugin-proposal-private-methods` `@babel/plugin-proposal-decorators`
->
-> 等 `babel8` 解决
 
 ---
 

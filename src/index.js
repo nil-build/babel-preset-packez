@@ -7,7 +7,6 @@ module.exports = function (api, opts) {
     // 无效
     strictMode: true,
     // useFlow: false,
-    decoratorsBeforeExport: true,
     allowDeclareFields: true,
     // corejs: 3,
     // useBuiltIns: "usage",
@@ -35,11 +34,13 @@ module.exports = function (api, opts) {
           "useFlow",
           "runtimeOptions",
           "strictMode",
-          "decoratorsBeforeExport",
           "allowDeclareFields",
         ]),
       ],
       require.resolve("@babel/preset-react"),
+      {
+        plugins: plugins(api, opts),
+      },
       [
         require.resolve("@babel/preset-typescript"),
         {
@@ -47,7 +48,8 @@ module.exports = function (api, opts) {
         },
       ],
     ].filter(Boolean),
-    plugins: plugins(api, opts),
+    // plugins: plugins(api, opts),
+    // TODO: @babel/plugin-transform-strict-mode
     // overrides: [
     // 	opts.useFlow && {
     // 		exclude: /\.tsx?$/,
