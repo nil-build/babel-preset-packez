@@ -1,14 +1,13 @@
 {
-    "presets": [
-        [
-            "./lib",
-            {
-                "modules": "cjs",
-                "strictMode": false,
-                "runtimeOptions": {
-                    "helpers": true
-                }
-            }
-        ]
+  "presets": [
+    [
+      "./lib",
+      {
+        "modules": "cjs",
+        "runtimeOptions": {
+          "helpers": true
+        }
+      }
     ]
+  ]
 }

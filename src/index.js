@@ -5,7 +5,7 @@ module.exports = function (api, opts) {
   const defaultOpts = {
     modules: "commonjs",
     // 无效
-    strictMode: true,
+    // strictMode: true,
     // useFlow: false,
     allowDeclareFields: true,
     // corejs: 3,
@@ -18,7 +18,7 @@ module.exports = function (api, opts) {
       corejs: false,
       helpers: true,
       regenerator: true,
-      useESModules: false,
+      // useESModules: false,
       absoluteRuntime: false,
     },
     exclude: ["transform-typeof-symbol"],
@@ -49,14 +49,6 @@ module.exports = function (api, opts) {
       ],
     ].filter(Boolean),
     // plugins: plugins(api, opts),
-    // TODO: @babel/plugin-transform-strict-mode
-    // overrides: [
-    // 	opts.useFlow && {
-    // 		exclude: /\.tsx?$/,
-    // 		plugins: [
-    // 			require.resolve("@babel/plugin-transform-flow-strip-types"),
-    // 		],
-    // 	},
-    // ].filter(Boolean),
+    // overrides: [],
   };
 };

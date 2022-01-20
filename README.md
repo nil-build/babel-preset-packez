@@ -35,16 +35,11 @@ defaults to
 corejs: false,
 helpers: true,
 regenerator: true,
-useESModules: false,
 absoluteRuntime: false,
 }
 ```
 
 详细：[transform-runtime](https://babeljs.io/docs/en/next/babel-plugin-transform-runtime)
-
-### allowDeclareFields
-
-`boolean`, defaults to `true`
 
 ---
 

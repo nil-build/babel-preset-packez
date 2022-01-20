@@ -16,25 +16,26 @@ var _exportNames = {
   sv2: true
 };
 exports.default = f;
-Object.defineProperty(exports, "x111", {
-  enumerable: true,
-  get: function get() {
-    return ns.x111;
-  }
-});
-Object.defineProperty(exports, "v333", {
-  enumerable: true,
-  get: function get() {
-    return ns.x222;
-  }
-});
 Object.defineProperty(exports, "sv2", {
   enumerable: true,
   get: function get() {
     return ns.default;
   }
 });
-exports.v = exports.sv21 = exports.vxx = void 0;
+exports.v = exports.sv21 = void 0;
+Object.defineProperty(exports, "v333", {
+  enumerable: true,
+  get: function get() {
+    return ns.x222;
+  }
+});
+exports.vxx = void 0;
+Object.defineProperty(exports, "x111", {
+  enumerable: true,
+  get: function get() {
+    return ns.x111;
+  }
+});
 
 var _interopRequireWildcard2 = _interopRequireDefault(require("@babel/runtime/helpers/interopRequireWildcard"));
 
@@ -45,6 +46,10 @@ var _inherits2 = _interopRequireDefault(require("@babel/runtime/helpers/inherits
 var _createSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/createSuper"));
 
 var _wrapNativeSuper2 = _interopRequireDefault(require("@babel/runtime/helpers/wrapNativeSuper"));
+
+var _classPrivateMethodInitSpec2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateMethodInitSpec"));
+
+var _classPrivateFieldInitSpec2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateFieldInitSpec"));
 
 var _classPrivateMethodGet2 = _interopRequireDefault(require("@babel/runtime/helpers/classPrivateMethodGet"));
 
@@ -481,9 +486,9 @@ function f() {}
   };
 
   // @annotation
-  var MyClass = function MyClass() {
+  var MyClass = /*#__PURE__*/(0, _createClass2.default)(function MyClass() {
     (0, _classCallCheck2.default)(this, MyClass);
-  };
+  });
 } //do-expressions
 // {
 //     let za = do {
@@ -706,25 +711,20 @@ function f() {}
       }
 
       _this3 = _super.call.apply(_super, [this].concat(args));
-
-      _clicked.add((0, _assertThisInitialized2.default)(_this3));
-
-      _render.add((0, _assertThisInitialized2.default)(_this3));
-
-      _x5.set((0, _assertThisInitialized2.default)(_this3), {
+      (0, _classPrivateMethodInitSpec2.default)((0, _assertThisInitialized2.default)(_this3), _clicked);
+      (0, _classPrivateMethodInitSpec2.default)((0, _assertThisInitialized2.default)(_this3), _render);
+      (0, _classPrivateFieldInitSpec2.default)((0, _assertThisInitialized2.default)(_this3), _x5, {
         get: _get_x,
         set: _set_x
       });
-
-      _xValue.set((0, _assertThisInitialized2.default)(_this3), {
+      (0, _classPrivateFieldInitSpec2.default)((0, _assertThisInitialized2.default)(_this3), _xValue, {
         writable: true,
         value: 0
       });
-
       return _this3;
     }
 
-    return Counter;
+    return (0, _createClass2.default)(Counter);
   }( /*#__PURE__*/(0, _wrapNativeSuper2.default)(HTMLElement));
 
   function _get_x() {
