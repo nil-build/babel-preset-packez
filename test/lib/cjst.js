@@ -2,9 +2,9 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault").default;
 
-var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+var _regeneratorRuntime2 = _interopRequireDefault(require("@babel/runtime/helpers/regeneratorRuntime"));
 
-var _marked = /*#__PURE__*/_regenerator.default.mark(foo);
+var _marked = /*#__PURE__*/(0, _regeneratorRuntime2.default)().mark(foo);
 
 function cssWithMappingToString(item, useSourceMap) {}
 
@@ -22,7 +22,7 @@ module.exports = function (useSourceMap) {
 };
 
 function foo() {
-  return _regenerator.default.wrap(function foo$(_context) {
+  return (0, _regeneratorRuntime2.default)().wrap(function foo$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:

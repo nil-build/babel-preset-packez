@@ -61,7 +61,7 @@ var _skipFirstGeneratorNext2 = _interopRequireDefault(require("@babel/runtime/he
 
 var _objectWithoutProperties2 = _interopRequireDefault(require("@babel/runtime/helpers/objectWithoutProperties"));
 
-var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+var _regeneratorRuntime2 = _interopRequireDefault(require("@babel/runtime/helpers/regeneratorRuntime"));
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
@@ -357,8 +357,8 @@ function f() {}
 
 {
   var _foo2 = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee() {
-      return _regenerator.default.wrap(function _callee$(_context) {
+    var _ref2 = (0, _asyncToGenerator2.default)( /*#__PURE__*/(0, _regeneratorRuntime2.default)().mark(function _callee() {
+      return (0, _regeneratorRuntime2.default)().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
@@ -386,8 +386,8 @@ function f() {}
   };
 
   var _agf3 = function _agf2() {
-    _agf3 = (0, _wrapAsyncGenerator2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee2() {
-      return _regenerator.default.wrap(function _callee2$(_context2) {
+    _agf3 = (0, _wrapAsyncGenerator2.default)( /*#__PURE__*/(0, _regeneratorRuntime2.default)().mark(function _callee2() {
+      return (0, _regeneratorRuntime2.default)().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
@@ -518,10 +518,10 @@ function f() {}
 
 {
   var generator = function () {
-    var _ref3 = (0, _skipFirstGeneratorNext2.default)( /*#__PURE__*/_regenerator.default.mark(function _callee3() {
+    var _ref3 = (0, _skipFirstGeneratorNext2.default)( /*#__PURE__*/(0, _regeneratorRuntime2.default)().mark(function _callee3() {
       var _functionSent;
 
-      return _regenerator.default.wrap(function _callee3$(_context3) {
+      return (0, _regeneratorRuntime2.default)().wrap(function _callee3$(_context3) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
@@ -670,8 +670,8 @@ function f() {}
 } //regenerator
 
 {
-  var _a6 = /*#__PURE__*/_regenerator.default.mark(function _a6() {
-    return _regenerator.default.wrap(function _a6$(_context4) {
+  var _a6 = /*#__PURE__*/(0, _regeneratorRuntime2.default)().mark(function _a6() {
+    return (0, _regeneratorRuntime2.default)().wrap(function _a6$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
@@ -739,9 +739,9 @@ function f() {}
   function _render2() {}
 
   function _clicked2() {
-    var _this$x;
+    var _this$x, _this$x2;
 
-    (0, _classPrivateFieldSet2.default)(this, _x5, (_this$x = +(0, _classPrivateFieldGet2.default)(this, _x5)) + 1), _this$x;
+    (0, _classPrivateFieldSet2.default)(this, _x5, (_this$x = (0, _classPrivateFieldGet2.default)(this, _x5), _this$x2 = _this$x++, _this$x)), _this$x2;
   }
 } //partial-application
 // {
